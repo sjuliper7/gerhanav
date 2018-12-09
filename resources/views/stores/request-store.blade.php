@@ -190,7 +190,7 @@
                                 <select name="province-select" id="province" class="form-control" onchange="getCites()" required >
                                     <option selected="selected" name="store_province">Pilih Provinsi</option>
                                     @foreach($provinces as $province)
-                                        <option value="{{$province["province"]}}">{{$province["province"]}}</option>
+                                        <option value="{{$province->province}}">{{$province->province}}</option>
                                     @endforeach
                                 </select>
                             </div>
