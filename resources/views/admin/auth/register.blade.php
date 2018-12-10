@@ -38,10 +38,19 @@
 
         </div>
         <div class=".col-lg-6 .col-md-4 .col-sm-12">
-            @if (count($errors) > 0)
+            @if (count($errors) == 1)
                 <div class="alert alert-danger">
                     @foreach ($errors->all() as $error)
-                        {{ $error }}
+                        <p style="font-size: 11px" class="text-center">{{ $error }}</p>
+                    @endforeach
+                </div>
+
+            @elseif(count($errors) > 1)
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        <ul>
+                            <li style="font-size: 11px">{{ $error }}</li>
+                        </ul>
                     @endforeach
                 </div>
             @endif
@@ -92,7 +101,7 @@
                                                 <button type="button"
                                                         class=" text-center btn btn-outline-light text-dark"
                                                         data-toggle="modal"
-                                                        data-target="#termsModal">{{ trans('adminlte_lang::message.terms') }}</button>
+                                                        data-target="#termsModal">Terms</button>
 
 
                                             </div>

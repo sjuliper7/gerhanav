@@ -23,23 +23,23 @@ class UsersTableSeeder extends Seeder
             ]
         );
 
-        DB::table('users')->insert(
-            [
-                'name' => "Jhon Sipahutar",
-                'email' => 'sjhon7@gmail.com',
-                'password' => bcrypt('qwerty1'),
-                'created_at' => Carbon::now(),
-            ]
-        );
-
-        DB::table('users')->insert(
-            [
-                'name' => "Johan Lumbanbatu",
-                'email' => 'lbjohan7@gmail.com',
-                'password' => bcrypt('qwerty1'),
-                'created_at' => Carbon::now(),
-            ]
-        );
+//        DB::table('users')->insert(
+//            [
+//                'name' => "Jhon Sipahutar",
+//                'email' => 'sjhon7@gmail.com',
+//                'password' => bcrypt('qwerty1'),
+//                'created_at' => Carbon::now(),
+//            ]
+//        );
+//
+//        DB::table('users')->insert(
+//            [
+//                'name' => "Johan Lumbanbatu",
+//                'email' => 'lbjohan7@gmail.com',
+//                'password' => bcrypt('qwerty1'),
+//                'created_at' => Carbon::now(),
+//            ]
+//        );
 
 
 
