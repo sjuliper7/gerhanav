@@ -490,14 +490,13 @@
         </div>
     </div>
 
-    <div class="characteristics shadow p-3 mb-5 bg-white rounded ">
-        <div class="container char_item" style="padding: 20px">
+    <div class="characteristics shadow p-3 mb-5 pt-5 bg-white rounded ">
+        <div class="container">
             <div class="row">
-
                 <!-- Char. Item -->
                 <div class="col-lg-4 col-md-6 char_col">
                     {{--<a href="#">--}}
-                        <div class="d-flex flex-row align-items-center justify-content-start">
+                        <div class="d-flex flex-row align-items-center justify-content-center">
                             <div class="char_icon">
                                 <img src="images/char_3.png">
                             </div>
@@ -512,7 +511,7 @@
                 <!-- Char. Item -->
                 <div class="col-lg-4 col-md-6 char_col">
                     {{--<a href="#">--}}
-                        <div class=" d-flex flex-row align-items-center justify-content-start">
+                        <div class=" d-flex flex-row align-items-center justify-content-center">
                             <div class="char_icon"><img src="images/contact_1.png" alt=""></div>
                             <div class="char_content">
                                 <div class="char_title">Support</div>
@@ -525,7 +524,7 @@
                 <!-- Char. Item -->
                 <div class="col-lg-4 col-md-6 char_col">
                     {{--<a href="#">--}}
-                        <div class=" d-flex flex-row align-items-center justify-content-start">
+                        <div class=" d-flex flex-row align-items-center justify-content-center">
                             <div class="char_icon"><img src="images/char_4.png" alt=""></div>
                             <div class="char_content">
                                 <div class="char_title">Kualitas</div>
@@ -534,16 +533,13 @@
                         </div>
                     {{--</a>--}}
                 </div>
-
-                <!-- Char. Item -->
-
             </div>
         </div>
     </div>
 
     <!-- Deals of the week -->
 
-    <div class="deals_featured" style="margin-bottom: 30px; margin-top: -70px">
+    <div class="deals_featured" style="margin-bottom: 30px;">
         <div class="container">
             <div class="row">
                 <div class="col d-flex flex-lg-row flex-column align-items-center justify-content-start">
@@ -552,7 +548,7 @@
                         <div class="tabbed_container">
                             <div class="tabs">
                                 <ul class="clearfix">
-                                    <li class="active">Product</li>
+                                    <li class="active">Produk</li>
                                 </ul>
                                 <div class="tabs_line"><span style="background-color: #8b0000"></span></div>
                             </div>
@@ -576,8 +572,10 @@
                                                 </div>
 
                                                 <div class="product_content">
+                                                    <div class="product_name">
+                                                        <a href="{{ URL::to('buy/' . $product->name ) }}">{{$product->name}}</a>
+                                                    </div>
                                                     <div class="product_price discount">Rp. {{$product->price}}</div>
-                                                    <div class="product_name"><div><a href="{{ URL::to('buy/' . $product->name ) }}">{{$product->name}}</a></div></div>
                                                 </div>
                                             </div>
                                         </div>
