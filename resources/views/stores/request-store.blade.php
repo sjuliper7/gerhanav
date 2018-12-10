@@ -190,7 +190,7 @@
                                 <select name="province-select" id="province" class="form-control" onchange="getCites()" required >
                                     <option selected="selected" name="store_province">Pilih Provinsi</option>
                                     @foreach($provinces as $province)
-                                        <option value="{{$province->province}}">{{$province->province}}</option>
+                                        <option value="{{$province->province_id}}">{{$province->province}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -404,8 +404,9 @@
                 if(result != null){
                     $.each(result, function(key, value) {
                         $el.append($("<option></option>")
-                            .attr("value", value.city_name).text(value.city_name));
+                            .attr("value", value.city_id).text(value.city_name));
                     });
+                    getSubDistrict();
                 }else {
                     $el.append($("<option></option>")
                         .attr("value",0).text("Pilih Kabupaten Kota"));
@@ -423,7 +424,7 @@
                 if(result != null){
                     $.each(result, function(key, value) {
                         $el.append($("<option></option>")
-                            .attr("value", value.subdistrict_name).text(value.subdistrict_name));
+                            .attr("value", value.subdistrict_id).text(value.subdistrict_name));
                     });
                 }else {
                     $el.append($("<option></option>")
