@@ -53,8 +53,6 @@
                     {{--@endcan--}}
                     {!! Form::close() !!}
                 </div>
-
-
             </div>
         </div>
     </div>
