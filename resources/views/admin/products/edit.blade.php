@@ -19,23 +19,23 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label>Harga</label>
+                                <label>Harga Awal</label>
                                 <input type="text" name="price" value="{{$product->price}}" class="form-control" placeholder="harga" data-error="Please enter price" required>
                                 <div class="help-block with-errors"></div>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label>Stok</label>
-                                <input type="text" name="stock" value="{{$product->stock}}" class="form-control" placeholder="stok" data-error="Please enter stock" required>
+                            <div class="form-group col-md-3">
+                                <label>Discount (%)</label>
+                                <input type="text" name="discount" value="{{$product->discount}}" class="form-control" placeholder="discount" data-error="Please enter price" required>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label>Berat</label>
-                                <input type="text" name="weight" class="form-control" value="{{$product->weight}}" placeholder="berat" data-error="Please enter stock" required>
+                                <label>Harga Akhir</label>
+                                <input type="text" value="{{$lastPrice}}"class="form-control" placeholder="discount" data-error="Please enter price"readonly>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-5">
+                            <div class="form-group col-md-6">
                                 <label>Kategori Produk</label>
                                 <select name="category-select" id="select-category" class="form-control" required style="width: 100%">
                                     @foreach($categoryProducts as $categoryProduct)
@@ -45,12 +45,10 @@
                                         <option value="{{$categoryProduct->id}}">{{$categoryProduct->name}}</option>
                                     @endforeach
                                 </select>
-
                             </div>
-
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-5">
                                 <label>Status Produk</label>
-                                <select name="status-select" id="select-status" class="form-control" style="width: auto">
+                                <select name="status-select" id="select-status" class="form-control" style="width: 100%">
                                     @foreach($statusProducts as $statusProduct)
                                         @if($statusProduct->id == $product->id_status)
                                             <option selected="selected" value="{{$statusProduct->id}}">{{$statusProduct->name}}</option>
@@ -59,8 +57,20 @@
                                     @endforeach
                                 </select>
                             </div>
-
                         </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Stok</label>
+                                <input type="text" name="stock" value="{{$product->stock}} " class="form-control" placeholder="stok" data-error="Please enter stock" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group col-md-5">
+                                <label>Berat</label>
+                                <input type="text" name="weight" class="form-control" value="{{$product->weight}} " placeholder="berat" data-error="Please enter stock" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label>Deskripsi</label>
