@@ -39,6 +39,8 @@
 
                     <a href="{{ url()->previous() }}" class="btn btn-primary">Kembali</a>
                     {{--@can('Edit Post')--}}
+                    <a href="{{ route('catalog-products.edit', $product->id) }}" class="btn btn-info" role="button">Ubah</a>
+
                     <form action="{{url('/add-catalog/'.$product->id)}}" method="POST">
                         {{csrf_field()}}
                         <input type="submit" onclick="save()" class="btn btn-info" role="button">
