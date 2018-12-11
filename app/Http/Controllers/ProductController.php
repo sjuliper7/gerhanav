@@ -56,6 +56,7 @@ class ProductController extends Controller
         $product->name = $request['name'];
         $product->price = $request['price'];
         $product->stock = $request['stock'];
+        $product->discount = $request['discount'];
         $product->description = $request['description'];
         $product->story = $request['story'];
         $product->weight = $request['weight'];
@@ -81,7 +82,7 @@ class ProductController extends Controller
         $product->save();
 
         //Display a successful message upon save
-        return redirect()->route('products.show')
+        return redirect()->route('products.index')
             ->with('flash_message', 'Product,
              '. $product->name.' created');
 
@@ -97,9 +98,17 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::with('status','category')->findOrFail($id);
+//        dd($product);
+        $firstPrice= $product->price;
+        $discount= $product->discount;
+        $price_discount= $discount/100*$firstPrice;
+        $lastPrice = $firstPrice - $price_discount;
+//        dd($lastPrice);
+//        $product->lastPrice = $lastPrice;
+//        $product->price = $lastPrice;
         $images = json_decode($product->images);
 
-        return view ('admin.products.show', compact('product','images'));
+        return view ('admin.products.show', compact('product','images','lastPrice'));
     }
 
     /**
@@ -111,11 +120,17 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::with('status','category')->findOrFail($id);
+//        dd($product);
         $images = json_decode($product->images);
+
+        $firstPrice= $product->price;
+        $discount= $product->discount;
+        $price_discount= $discount/100*$firstPrice;
+        $lastPrice = $firstPrice - $price_discount;
 
         $statusProducts  = StatusProduct::all();
         $categoryProducts = CategoryProduct::all();
-        return view ('admin.products.edit', compact('product','statusProducts','categoryProducts','images'));
+        return view ('admin.products.edit', compact('product','statusProducts','categoryProducts','images','lastPrice'));
     }
 
     /**
@@ -130,13 +145,26 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($id);
         $product->name = $request['name'];
+
+//        $firstPrice= $request['price'];
+//        $discount= $request['discount'];
+//        $price_discount= $discount/100*$firstPrice;
+//        $lastPrice = $firstPrice - $price_discount;
+//        $product->lastPrice = $lastPrice;
+//        $product->price = $lastPrice;
         $product->price = $request['price'];
         $product->stock = $request['stock'];
         $product->weight = $request['weight'];
+        $product->discount = $request['discount'];
         $product->description = $request['description'];
         $product->story = $request['story'];
         $product->id_status = $request['status-select'];
         $product->id_category = $request['category-select'];
+
+//        $priceFirst = $request['price'];
+//        $discount= $request['discount'];
+//        $price_discount= $discount/100*$priceFirst;
+//        $lastFirst = $priceFirst - $price_discount;
 
         if($request->hasfile('images'))
         {
