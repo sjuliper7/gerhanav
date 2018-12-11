@@ -68,9 +68,14 @@ class CatalogController extends Controller
         $product = Product::with('status','category')->findOrFail($id);
         $images = json_decode($product->images);
 
+        $firstPrice= $product->price;
+        $discount= $product->discount;
+        $price_discount= $discount/100*$firstPrice;
+        $lastPrice = $firstPrice - $price_discount;
+
         $statusProducts  = StatusProduct::all();
         $categoryProducts = CategoryProduct::all();
-        return view ('admin.catalog-products.edit', compact('product','statusProducts','categoryProducts','images'));
+        return view ('admin.catalog-products.edit', compact('product','statusProducts','categoryProducts','images','lastPrice'));
     }
 
     /**
@@ -82,7 +87,47 @@ class CatalogController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $product = Product::findOrFail($id);
+        $product->name = $request['name'];
 
+//        $firstPrice= $request['price'];
+//        $discount= $request['discount'];
+//        $price_discount= $discount/100*$firstPrice;
+//        $lastPrice = $firstPrice - $price_discount;
+//        $product->lastPrice = $lastPrice;
+//        $product->price = $lastPrice;
+        $product->price = $request['price'];
+        $product->stock = $request['stock'];
+        $product->weight = $request['weight'];
+        $product->discount = $request['discount'];
+        $product->description = $request['description'];
+        $product->story = $request['story'];
+        $product->id_status = $request['status-select'];
+        $product->id_category = $request['category-select'];
+
+//        $priceFirst = $request['price'];
+//        $discount= $request['discount'];
+//        $price_discount= $discount/100*$priceFirst;
+//        $lastFirst = $priceFirst - $price_discount;
+
+        if($request->hasfile('images'))
+        {
+            foreach($request->file('images') as $image)
+            {
+                $name = $image->getClientOriginalName();
+                $image->move('images/', $name);
+                $data[] = $name;
+            }
+
+            $images = json_encode($data);
+            $product->images = $images;
+        }
+
+        $product->save();
+
+        return redirect()->route('catalog-products.show',
+            $product->id)->with('flash_message',
+            'Product, '. $product->name.' updated');
     }
 
     /**
