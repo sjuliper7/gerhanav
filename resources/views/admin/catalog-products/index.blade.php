@@ -21,22 +21,32 @@
                             <div id="{{'menu'.$category->id}}" class="tab-pane fade in active">
                                 <div class="col-md-10 col-md-offset-0" style="margin-top: 20px">
                                     <div class="panel panel-default">
-                                        <div class="panel-heading"><h5>{{$category->name}}</h5></div>
+                                        <div class="panel-heading col-12"style="max-height: 5em">
+
+                                            <h5>{{$category->name}}</h5>
+                                            <form action="{{url('/list-catalog/')}}" method="GET">
+                                                {{csrf_field()}}
+                                                <input type="Submit" onclick="list()" class="btn btn-info text-left" role="button">
+                                            </form>
+
+                                        </div>
                                         <table class="table table-hover">
                                             <thead>
                                             <tr>
+                                                <th>Product Image</th>
                                                 <th>Store Name</th>
                                                 <th>Product Name</th>
-                                                <th>Product Image</th>
+                                                <th>Operation</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             @foreach($products as $product)
                                                 @if($product->id_category == $category->id)
                                                     <tr>
+                                                        <td>{{$product->image}}</td>
                                                         <td>{{$product->store->store_name}}</td>
                                                         <td>{{$product->name}}</td>
-                                                        <td>{{$product->image}}</td>
+
                                                     </tr>
                                                 @endif
                                             @endforeach
@@ -49,13 +59,17 @@
                             <div id="{{'menu'.$category->id}}" class="tab-pane fade">
                                 <div class="col-md-10 col-md-offset-0" style="margin-top: 20px">
                                     <div class="panel panel-default">
-                                        <div class="panel-heading"><h5>{{$category->name}}</h5></div>
+                                        <div class="panel-heading">
+                                            <h5>{{$category->name}}</h5>
+                                            <a href="#" class="btn btn-default pull-right" style="margin-top:-3em">Terbitkan</a>
+                                        </div>
                                         <table class="table table-hover">
                                             <thead>
                                             <tr>
                                                 <th>Product Image</th>
                                                 <th>Store Name</th>
                                                 <th>Product Name</th>
+                                                <th>Operation</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -68,6 +82,9 @@
                                                         <td><img src="{{asset('images/'.$images[0])}}" style="max-width: 100px;max-height: 100px; padding: 5px"></td>
                                                         <td>{{$product->store->store_name}}</td>
                                                         <td>{{$product->name}}</td>
+                                                        <td>
+                                                            <a href="{{ route('catalog-products.show', $product->id ) }}" class="btn btn-info btn-block">Detail</a>
+                                                        </td>
                                                     </tr>
                                                 @endif
                                             @endforeach
