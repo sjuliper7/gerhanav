@@ -23,7 +23,7 @@
                                 <input type="text" name="price" value="{{$product->price}}" class="form-control" placeholder="harga" data-error="Please enter price" required>
                                 <div class="help-block with-errors"></div>
                             </div>
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-4">
                                 <label>Discount (%)</label>
                                 <input type="text" name="discount" value="{{$product->discount}}" class="form-control" placeholder="discount" data-error="Please enter price" required>
                                 <div class="help-block with-errors"></div>
