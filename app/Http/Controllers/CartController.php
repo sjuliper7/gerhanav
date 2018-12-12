@@ -129,11 +129,12 @@ class CartController extends Controller
                 $cart = Cart::find($request['cart_id']);
                 $cart->quantity = $cart->quantity+1;
                 if($cart->product->discount!=0){
-                    $cart->sub_total_price = $request['quantity'] * ($cart->product->price-($cart->product->price*$cart->product->discount/100));
+                    $discountPrice = $cart->product->price - ($cart->product->price * ($cart->product->discount/100));
+                    $cart->sub_total_price = $cart->quantity * $discountPrice;
                 }else{
-                    $cart->sub_total_price = $request['quantity'] * $cart->product->price;
+                    $cart->sub_total_price = $cart->quantity * $cart->product->price;
                 }
-//                $cart->sub_total_price = ($cart->sub_total_price) + ($cart->product->price);
+//
                 $cart->update();
             }
         }else{
@@ -141,15 +142,15 @@ class CartController extends Controller
                 $cart = Cart::find($request['cart_id']);
                 $cart->quantity = $cart->quantity - 1;
                 if($cart->product->discount!=0){
-                    $cart->sub_total_price = $request['quantity'] * ($cart->product->price-($cart->product->price*$cart->product->discount/100));
+                    $discountPrice = $cart->product->price - ($cart->product->price * ($cart->product->discount/100));
+                    $cart->sub_total_price = $cart->quantity * $discountPrice;
                 }else{
-                    $cart->sub_total_price = $request['quantity'] * $cart->product->price;
+                    $cart->sub_total_price = $cart->quantity * $cart->product->price;
                 }
-//                $cart->sub_total_price = ($cart->sub_total_price) - ($cart->product->price);
+
                 $cart->update();
             }
         }
-//        dd($temp,Session::get('carts'));
         return "success";
     }
 
