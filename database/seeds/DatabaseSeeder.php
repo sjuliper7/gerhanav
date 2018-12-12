@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
              StoresTableSeeder::class,
              StatusTransactionTableSeeder::class,
              ProductTableSeeder::class,
+             ReviewTableSeeder::class,
          ]);
 
     }
