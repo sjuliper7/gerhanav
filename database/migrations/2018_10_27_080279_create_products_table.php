@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->double('weight');
             $table->integer('rating')->default(0);
             $table->integer('viewed')->default(0);
+            $table->double('discount')->default(0);
             $table->integer('id_status')->unsigned();
             $table->integer('id_category')->unsigned();
             $table->integer('id_store')->unsigned();

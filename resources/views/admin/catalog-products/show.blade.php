@@ -28,8 +28,6 @@
                     <h1>{{ $product->name}}</h1>
                     <hr>
                     <p class="lead text-danger">Harga : Rp {{ number_format($product->price,2) }} </p>
-                    <p class="lead text-danger">Discount : {{ number_format($product->discount) }}% </p>
-                    <p class="lead text-danger">Harga Akhir: Rp {{ number_format($lastPrice,2) }} </p>
                     <p class="lead text-success">Stok : {{ $product->stock }} pcs</p>
                     <p class="lead text-success">Kategori  : {{ $product->category->name}} </p>
                     <p class="lead text-success">Status  : {{ $product->status->name}} </p>
@@ -38,23 +36,36 @@
 
 
                     <hr>
-                    {!! Form::open(['method' => 'DELETE', 'route' => ['products.destroy', $product->id] ]) !!}
+
                     <a href="{{ url()->previous() }}" class="btn btn-primary">Kembali</a>
                     {{--@can('Edit Post')--}}
-                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-info" role="button">Ubah</a>
-                    {{--@endcan--}}
-                    {{--@can('Delete Post')--}}
-                    <form action="{{url('products/'.$product->id)}}" method="post">
+                    <a href="{{ route('catalog-products.edit', $product->id) }}" class="btn btn-info" role="button">Ubah</a>
+
+                    <form action="{{url('/add-catalog/'.$product->id)}}" method="POST">
                         {{csrf_field()}}
-                        <input name="_method" type="hidden" value="DELETE">
-                        <button class="btn btn-danger" onclick="return confirm('Are you sure?')" type="submit">Hapus</button>
+                        <input type="submit" onclick="save()" class="btn btn-info" role="button">
                     </form>
-                    {{--onclick="return confirm('Are you sure?')"--}}
-                    {{--@endcan--}}
-                    {!! Form::close() !!}
+
+
+
+
                 </div>
+
+
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+        });
+
+        function save(){
+
+        }
+
+    </script>
+
 
 @endsection

@@ -25,19 +25,14 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                                 <label>Harga</label>
                                 <input type="text" name="price" class="form-control" placeholder="harga" data-error="Mohon isi harga produk" required>
                                 <div class="help-block with-errors"></div>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label>Stok</label>
-                                <input type="text" name="stock" class="form-control" placeholder="stok" data-error="Mohon isi stok produk" required>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label>Berat</label>
-                                <input type="text" name="weight" class="form-control" placeholder="Berat" data-error="Mohon isi berat produk" required>
+                            <div class="form-group col-md-5">
+                                <label>Discount (%)</label>
+                                <input type="text" name="discount"  value="0" class="form-control" placeholder="discount" data-error="Mohon isi harga diskon" required>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
@@ -64,6 +59,20 @@
                             </div>
 
                         </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Stok</label>
+                                <input type="text" name="stock"  class="form-control" placeholder="stok" data-error="Mohon masukkan stock" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group col-md-5">
+                                <label>Berat</label>
+                                <input type="text" name="weight" class="form-control"  placeholder="berat" data-error="Mohon masukkan berat produk" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label>Deskripsi</label>

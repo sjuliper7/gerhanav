@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Catalog;
 use App\CategoryProduct;
 use App\Product;
 use App\Store;
@@ -13,6 +14,15 @@ class LandingPageController extends Controller
     public function index(){
         $categoryProducts = CategoryProduct::all();
         $products = Product::all();
+
+//        $firstPrice= $products->price;
+//        dd($products);
+//        $discount= $products->discount;
+//        $price_discount= $discount/100*$firstPrice;
+//        $lastPrice = $firstPrice - $price_discount;
+
+
+        $catalog = Catalog::with('product')->get();
         $productsView = Product::where('viewed', '!=' , 0)->get();
 
         $mostProductView = array();
@@ -37,7 +47,7 @@ class LandingPageController extends Controller
             array_push($mostProductView, $productsView[$i]);
         }
 
-        return view('landing-page',compact('categoryProducts', 'products','mostProductView'));
+        return view('landing-page',compact('categoryProducts', 'products','mostProductView','catalog','lastPrice'));
     }
 
     public function buyProduct($name){
