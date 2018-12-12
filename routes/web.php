@@ -117,3 +117,7 @@ Route::get('get-user','LandingPageController@getUser');
 Route::Post('/search','LandingPageController@search');
 
 Route::get('/test','RajaOngkirController@getProvinces');
+
+Route::Post('/add-catalog/{id}','CatalogController@save');
+
+Route::get('/list-catalog','CatalogController@list');
