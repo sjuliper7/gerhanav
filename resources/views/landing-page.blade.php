@@ -542,32 +542,26 @@
     <div class="deals_featured" style="margin-bottom: 30px;">
         <div class="container">
             <div class="row">
-                <div class="col d-flex flex-lg-row flex-column align-items-center justify-content-start">
-                    <!-- Featured -->
-                    <div class="featured">
-                        <div class="tabbed_container">
-                            <div class="tabs">
-                                <ul class="clearfix">
-                                    <li class="active">Produk</li>
-                                </ul>
-                                <div class="tabs_line"><span style="background-color: #8b0000"></span></div>
-                            </div>
-
-                            <!-- Product Panel -->
-                            <div class="product_panel panel active">
-                                <div class="featured_slider slider">
+                <div class="col">
+                    <div class="card" style="background-color: white; border: none">
+                        <div class="card-header" style="background-color: white; border: none; padding: 0px;">
+                            <h3 class="viewed_title">Produk Terbaru</h3>
+                            <div class="tabs_line"><span style="background-color: #8b0000"></span></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="viewed_slider_container">
+                                <div class="owl-carousel owl-theme viewed_slider">
 
                                 @foreach($products as $product)
                                     <!-- Slider Item -->
-                                        <div class="featured_slider_item" style="margin-bottom: 20px">
-                                            <div class="border_active"></div>
+                                        <div class="owl-item">
                                             <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                                 <?php
                                                 $images = json_decode($product->images);
                                                 ?>
                                                 <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                     <a href="{{ URL::to('buy/' . $product->name ) }}">
-                                                        <img src="{{ asset('images/'.$images[0])  }}" style="width:150px;height:150px; object-fit: cover;" >
+                                                        <img src="{{ asset('images/'.$images[0])  }}" style="width:150px;height:150px; object-fit: cover;">
                                                     </a>
                                                 </div>
 
@@ -582,40 +576,7 @@
                                     @endforeach
 
                                 </div>
-                                <div class="featured_slider_dots_cover"></div>
                             </div>
-
-                        </div>
-                    </div>
-                    <div class="deals">
-                        <div class="deals_title">Promo</div>
-                        <div class="deals_slider_container">
-
-                            <!-- Deals Slider -->
-                            <div class="owl-carousel owl-theme deals_slider">
-
-                                <!-- Deals Item -->
-                                @foreach($mostProductView as $mv)
-                                    <?php
-                                        $images = json_decode($mv->images);
-                                    ?>
-                                    <div class="owl-item deals_item">
-                                        <div class="deals_image"><img src="{{asset('images/'.$images[0])}}" alt=""></div>
-                                        <div class="deals_content">
-                                            <div class="deals_info_line d-flex flex-row justify-content-start">
-                                                <div class="deals_item_name">{{$mv->name}}</div>
-                                                <div class="deals_item_price ml-auto">Rp {{number_format($mv->price)}}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-
-                            </div>
-
-                        </div>
-                        <div class="deals_slider_nav_container">
-                            <div class="deals_slider_prev deals_slider_nav"><i class="fas fa-chevron-left ml-auto"></i></div>
-                            <div class="deals_slider_next deals_slider_nav"><i class="fas fa-chevron-right ml-auto"></i></div>
                         </div>
                     </div>
                 </div>
@@ -627,38 +588,41 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div class="viewed_title_container">
-                        <h3 class="viewed_title">Paling Banyak Dilihat</h3>
-                        <div class="viewed_nav_container">
-                            <div class="viewed_nav viewed_prev"><i class="fas fa-chevron-left"></i></div>
-                            <div class="viewed_nav viewed_next"><i class="fas fa-chevron-right"></i></div>
-                        </div>
+                    <div class="card" style="background-color: white; border: none">
+                        <div class="card-header" style="background-color: white; border: none; padding: 0px;">
+                            <h3 class="viewed_title">Paling Banyak Dilihat</h3>
+                            <div class="tabs_line"><span style="background-color: #8b0000"></span></div>
+                            {{--<div class="viewed_nav_container">--}}
+                                {{--<div class="viewed_nav viewed_prev"><i class="fas fa-chevron-left"></i></div>--}}
+                                {{--<div class="viewed_nav viewed_next"><i class="fas fa-chevron-right"></i></div>--}}
+                            {{--</div>--}}
                     </div>
 
-                    <div class="viewed_slider_container">
+                    <div class="card-body">
+                        <div class="viewed_slider_container">
+                            <div class="owl-carousel owl-theme viewed_slider">
 
-                        <!-- Recently Viewed Slider -->
+                                @foreach($mostProductView as $mv)
+                                    <div class="owl-item">
+                                        <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                            <?php
+                                                $images = json_decode($mv->images);
+                                            ?>
 
-                        <div class="owl-carousel owl-theme viewed_slider">
-                            <!-- Recently Viewed Item -->
-                            @foreach($mostProductView as $mv)
-                                <?php
-                                $images = json_decode($mv->images);
-                                ?>
-                                <div class="owl-item">
-                                    <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                                        <div class="viewed_image"><img src="{{asset('images/'.$images[0])}}" alt=""></div>
-                                        <div class="viewed_content text-center">
-                                            <div class="viewed_price">Rp {{number_format($mv->price)}}</div>
-                                            <div class="viewed_name"><a href="#">{{$mv->name}}</a></div>
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
+                                                <a href="#">
+                                                    <img src="{{asset('images/'.$images[0])}}" style="width:150px;height:150px; object-fit: cover;">
+                                                </a>
+                                            </div>
+
+                                            <div class="product_content text-center">
+                                                <div class="product_name"><a href="#">{{$mv->name}}</a></div>
+                                                <div class="product_price discount">Rp {{number_format($mv->price)}}</div>
+                                            </div>
                                         </div>
-                                        <ul class="item_marks">
-                                            {{--<li class="item_mark item_discount">-25%</li>--}}
-                                            {{--<li class="item_mark item_new">new</li>--}}
-                                        </ul>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>

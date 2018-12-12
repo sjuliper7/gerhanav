@@ -15,13 +15,11 @@
         </div>
     </div>
     </div>
-
 </head>
 
 <body>
-<div class="container">
+<div class="container mb-5">
     <div class="row">
-
         <div class="col-lg-6 .col-md-4 .col-sm-6">
             <div class="text-center">
                 <a href="{{ url('/home') }}">

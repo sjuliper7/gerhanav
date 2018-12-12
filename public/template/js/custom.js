@@ -870,7 +870,7 @@ $(document).ready(function()
 			viewedSlider.owlCarousel(
 			{
 				loop:true,
-				margin:30,
+				margin:10,
 				autoplay:true,
 				autoplayTimeout:6000,
 				nav:false,
