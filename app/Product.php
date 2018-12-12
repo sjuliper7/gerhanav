@@ -31,6 +31,10 @@ class Product extends Model
         return $this->hasOne('App\DetailTransaction','id_product');
     }
 
+    public function catalog(){
+        return $this->hasOne('App\Catalog','id_product');
+    }
+
     public function reviews(){
         return $this->hasMany('App\Review','id_product')->orderBy('created_at','desc')
             ->where(['status' => 1]);

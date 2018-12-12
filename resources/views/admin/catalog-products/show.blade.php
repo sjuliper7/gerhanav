@@ -41,9 +41,9 @@
                     {{--@can('Edit Post')--}}
                     <a href="{{ route('catalog-products.edit', $product->id) }}" class="btn btn-info" role="button">Ubah</a>
 
-                    <form action="{{url('/add-catalog/'.$product->id)}}" method="POST">
+                    <form action="{{url('/add-catalog/'.$product->id)}}" method="POST" style="margin-top:-2.7em;margin-left: 12.5em">
                         {{csrf_field()}}
-                        <input type="submit" onclick="save()" class="btn btn-info" role="button">
+                        <input value="Tambahkan ke Katalog" type="submit" onclick="save()" class="btn btn-info" role="button">
                     </form>
 
 

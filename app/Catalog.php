@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Catalog extends Model
 {
     protected $fillable = [
-        'id_product'
+        'id_product','isActive'
     ];
 
     public function product(){

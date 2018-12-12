@@ -139,16 +139,16 @@ class CatalogController extends Controller
     public function destroy($id)
     {
         $catalog = Catalog::findOrFail($id);
-        $catalog ->delete();
+        $catalog->is_active = 0;
+        $catalog ->update();
 
-        return redirect()->route('catalog=products.index')
+        return redirect()->route('catalog-products.index')
             ->with('flash_message',
                 'Catalog Product successfully deleted');
     }
 
     public function save($id){
-        $product = Product::with('status','category')->findOrFail($id);
-        $id_product = $product->id;
+        $id_product = $id;
         $catalog = new Catalog();
         $catalog->id_product = $id_product;
         $catalog->save();
@@ -157,10 +157,10 @@ class CatalogController extends Controller
     }
 
     public function list(){
-        $catalog = Catalog::all();
-        $products = Product::all();
-        $categories = CategoryProduct::all();
-        return view('admin.catalog-products.list',compact('categories','products','catalog'));
+    $catalog = Catalog::where(['is_active'=> 1])->get();
+    $products = Product::all();
+    $categories = CategoryProduct::all();
+    return view('admin.catalog-products.list',compact('categories','products','catalog'));
 
-    }
+}
 }
