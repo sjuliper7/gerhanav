@@ -80,10 +80,26 @@ class LandingPageController extends Controller
             }
         }
 
+        $check = false;
+        if(!Auth::guest()){
+            $transactions = Auth::user()->transactions;
+
+            foreach ($transactions as $transaction){
+                if($transaction->id_status == 6){
+                    $details = $transaction->detailTransactions;
+                    foreach ($details as $detail){
+                        if($detail->id_product == $product->id){
+                            $check =true;
+                        }
+                    }
+                }
+            }
+        }
+
         $desc .= "... ";
         $story .= "... ";
 
-        return view('detail-product',compact('product','images','reviews','desc','story','categoryProducts'));
+        return view('detail-product',compact('product','images','reviews','desc','story','categoryProducts','check'));
     }
 
 
