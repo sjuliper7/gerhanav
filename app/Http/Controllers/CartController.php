@@ -51,7 +51,11 @@ class CartController extends Controller
                 $cart->id_user = Auth::user()->id;
                 $cart->quantity = $request['quantity'];
                 $cart->comment = $request['comment'];
-                $cart->sub_total_price = $request['quantity'] * $product->price;
+                if($product->discount!=0){
+                    $cart->sub_total_price = $request['quantity'] * ($product->price-($product->price*$product->discount/100));
+                }else{
+                    $cart->sub_total_price = $request['quantity'] * $product->price;
+                }
                 $cart->is_active = true;
                 $cart->save();
             }else{
@@ -71,7 +75,11 @@ class CartController extends Controller
                 $cart->id_user = 0;
                 $cart->comment = $request['comment'];
                 $cart->quantity = $request['quantity'];
-                $cart->sub_total_price = $request['quantity'] * $product->price;
+                if($product->discount!=0){
+                    $cart->sub_total_price = $request['quantity'] * ($product->price-($product->price*$product->discount/100));
+                }else{
+                    $cart->sub_total_price = $request['quantity'] * $product->price;
+                }
                 $cart->is_active = true;
                 array_push($carts, $cart);
                 Session::put('carts',$carts);
@@ -83,7 +91,12 @@ class CartController extends Controller
                     if($cart->id_product == $request['id_product']){
                         $check = true;
                         $cart->quantity = $cart->quantity + $request['quantity'];
-                        $cart->sub_total_price = $cart->sub_total_price + ($product->price * $request['quantity']);
+                        if($product->discount!=0){
+                            $cart->sub_total_price = $cart->sub_total_price+ ($request['quantity'] * ($product->price-($product->price*$product->discount/100)));
+                        }else{
+                            $cart->sub_total_price = $cart->sub_total_price + ($request['quantity'] * $product->price);
+                        }
+//                        $cart->sub_total_price = $cart->sub_total_price + ($product->price * $request['quantity']);
                         Session::put('carts',$carts);
                     }
                 }
@@ -94,7 +107,11 @@ class CartController extends Controller
                     $cart->id_user = 0;
                     $cart->quantity = $request['quantity'];
                     $cart->comment = $request['comment'];
-                    $cart->sub_total_price = $request['quantity'] * $product->price;
+                    if($product->discount!=0){
+                        $cart->sub_total_price = $request['quantity'] * ($product->price-($product->price*$product->discount/100));
+                    }else{
+                        $cart->sub_total_price = $request['quantity'] * $product->price;
+                    }
                     $cart->is_active = true;
                     array_push($carts, $cart);
                     Session::put('carts',$carts);
@@ -111,14 +128,24 @@ class CartController extends Controller
             if(!Auth::guest()){
                 $cart = Cart::find($request['cart_id']);
                 $cart->quantity = $cart->quantity+1;
-                $cart->sub_total_price = ($cart->sub_total_price) + ($cart->product->price);
+                if($cart->product->discount!=0){
+                    $cart->sub_total_price = $request['quantity'] * ($cart->product->price-($cart->product->price*$cart->product->discount/100));
+                }else{
+                    $cart->sub_total_price = $request['quantity'] * $cart->product->price;
+                }
+//                $cart->sub_total_price = ($cart->sub_total_price) + ($cart->product->price);
                 $cart->update();
             }
         }else{
             if(!Auth::guest()){
                 $cart = Cart::find($request['cart_id']);
                 $cart->quantity = $cart->quantity - 1;
-                $cart->sub_total_price = ($cart->sub_total_price) - ($cart->product->price);
+                if($cart->product->discount!=0){
+                    $cart->sub_total_price = $request['quantity'] * ($cart->product->price-($cart->product->price*$cart->product->discount/100));
+                }else{
+                    $cart->sub_total_price = $request['quantity'] * $cart->product->price;
+                }
+//                $cart->sub_total_price = ($cart->sub_total_price) - ($cart->product->price);
                 $cart->update();
             }
         }
