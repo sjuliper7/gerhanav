@@ -76,7 +76,12 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <label>Harga <h3>Rp {{number_format($product->price)}}</h3></label>
+                            @if($product->discount !=0)
+                                <label>Harga <h3>Rp.{{$product->price-($product->price*$product->discount/100)}}</h3></label>
+                            @else
+                                <label>Harga <h3>Rp {{number_format($product->price)}}</h3></label>
+                            @endif
+
                         </div>
                         <div class="form-row">
                             <form action="{{url('/carts')}}" method="POST">
