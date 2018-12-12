@@ -116,4 +116,8 @@ Route::get('get-user','LandingPageController@getUser');
 
 Route::Post('/search','LandingPageController@search');
 
+Route::resource('refund','RefundController');
+
+Route::resource('status-refund','StatusRefundController');
+
 Route::get('/test','RajaOngkirController@getProvinces');
