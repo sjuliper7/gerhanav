@@ -21,13 +21,15 @@
                             <div id="{{'menu'.$category->id}}" class="tab-pane fade in active">
                                 <div class="col-md-10 col-md-offset-0" style="margin-top: 20px">
                                     <div class="panel panel-default">
-                                        <div class="panel-heading col-12"style="max-height: 5em">
+                                        <div class="panel-heading col-12 row"style="max-height: 5em">
+
 
                                             <h5>{{$category->name}}</h5>
-                                            <form action="{{url('/list-catalog/')}}" method="GET">
+                                            <form action="{{url('/list-catalog/')}}" method="GET"style="margin-left: 75%;margin-top: -5%">
                                                 {{csrf_field()}}
-                                                <input type="Submit" onclick="list()" class="btn btn-info text-left" role="button">
+                                                <input type="Submit" value="List Catalog" onclick="list()" class="btn btn-info text-left" role="button">
                                             </form>
+
 
                                         </div>
                                         <table class="table table-hover">
@@ -61,7 +63,11 @@
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
                                             <h5>{{$category->name}}</h5>
-                                            <a href="#" class="btn btn-default pull-right" style="margin-top:-3em">Terbitkan</a>
+                                            <form action="{{url('/list-catalog/')}}" method="GET"style="margin-left: 75%;margin-top: -5%">
+                                                {{csrf_field()}}
+                                                <input type="Submit" value="List Catalog" onclick="list()" class="btn btn-info text-left" role="button">
+                                            </form>
+
                                         </div>
                                         <table class="table table-hover">
                                             <thead>
