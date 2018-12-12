@@ -377,32 +377,6 @@
 
 <!-- Newsletter -->
 
-    <div class="newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div
-                        class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
-                        <div class="newsletter_title_container">
-                            <div class="newsletter_icon"><img src="{{asset('/template/images/send.png')}}" alt=""></div>
-                            <div class="newsletter_title">Dapatkan kabar dari kami selalu</div>
-                            <div class="newsletter_text"><p>...mendapat potongan harga 20% dari pembelian pertama.</p>
-                            </div>
-                        </div>
-                        <div class="newsletter_content clearfix">
-                            <form action="#" class="newsletter_form">
-                                <input type="email" class="newsletter_input" required="required"
-                                       placeholder="Masukkan email anda">
-                                <button class="newsletter_button" style="background-color: #8b0000">Berlangganan
-                                </button>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
 
