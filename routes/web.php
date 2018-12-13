@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 Auth::routes();
 
+Auth::routes(['verify' => true]);
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('users', 'UserController');
@@ -46,7 +48,7 @@ Route::get('/', 'LandingPageController@index')->name('landing-page');
 
 Route::resource('stores','StoreController');
 
-Route::get('/my-store','StoreController@myStore')->name('my-store');
+Route::get('/my-store','StoreController@myStore')->name('my-store')->middleware('verified');
 
 Route::resource('status-stores','StatusStoreController');
 
@@ -56,31 +58,31 @@ Route::POST('cancel-request','RequestStoreController@cancelRequest');
 
 Route::get('{name}/products','OwnerProductController@index');
 
-Route::resource('owner-products','OwnerProductController');
+Route::resource('owner-products','OwnerProductController')->middleware('verified');
 
-Route::get('/list-transactions/{id}','OwnerProductController@listTransaction');
+Route::get('/list-transactions/{id}','OwnerProductController@listTransaction')->middleware('verified');
 
-Route::get('/checkout-detail','TransactionController@checkoutDetail');
+Route::get('/checkout-detail','TransactionController@checkoutDetail')->middleware('verified');
 
-Route::get('/upload-payment/{order_id}','TransactionController@payment');
+Route::get('/upload-payment/{order_id}','TransactionController@payment')->middleware('verified');
 
-Route::POST('/upload-payment/{id}','TransactionController@updatePayment');
+Route::POST('/upload-payment/{id}','TransactionController@updatePayment')->middleware('verified');
 
-Route::POST('confirm-payment','TransactionController@confirmPayment');
+Route::POST('confirm-payment','TransactionController@confirmPayment')->middleware('verified');
 
 Route::get('buy/{name}','LandingPageController@buyProduct');
 
 Route::POST('carts','CartController@addToCart');
 
-Route::get('carts','CartController@index');
+Route::get('carts','CartController@index')->middleware('verified');
 
 Route::POST('/update-quantity','CartController@toUpdateQuantity');
 
-Route::get('checkout','CheckoutController@index');
+Route::get('checkout','CheckoutController@index')->middleware('verified');
 
-Route::get("transactions",'TransactionController@index');
+Route::get("transactions",'TransactionController@index')->middleware('verified');
 
-Route::get("transactions/{id}/show",'TransactionController@show');
+Route::get("transactions/{id}/show",'TransactionController@show')->middleware('verified');
 
 Route::resource('user-types','UserTypeController');
 
@@ -131,3 +133,7 @@ Route::get('reject-refund/{id}','RefundController@rejectRefund');
 Route::POST('create-reject/{id}','RefundController@createReject');
 
 Route::get('/test','RajaOngkirController@getProvinces');
+
+Route::Post('/add-catalog/{id}','CatalogController@save');
+
+Route::get('/list-catalog','CatalogController@list');

@@ -41,7 +41,7 @@
                                 </div>
                             {{--</a>--}}
                         @endforeach
-                            @if($detailTransaction->transaction->status == "Menunggu Verifikasi" || $detailTransaction->transaction->status == "Menunggu Pembayaran")
+                            @if($detailTransaction->transaction->status->name === "Menunggu Verifikasi" || $detailTransaction->transaction->status->name === "Menunggu Pembayaran")
                                 <div class="cart_buttons">
                                     {{--<a href="/" button type="button" class="btn btn-danger"style="background-color: #FFFFFF;color: #000000">Batal</a>--}}
                                     <a href="{{url('upload-payment/'.$detailTransaction->transaction->order_id)}}" type="button" class="btn btn-success"style="background-color: #8b0000">Bayar</a>

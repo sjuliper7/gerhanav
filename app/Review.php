@@ -15,7 +15,7 @@ class Review extends Model
     }
 
     public function product(){
-        return $this->belongsTo('App\User','id_product');
+        return $this->belongsTo('App\Product','id_product');
     }
 
     public function scopeApproved($query)

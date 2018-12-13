@@ -51,6 +51,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $rules = [
+            'name'     => 'required|max:90|unique:products',
+        ];
+
+        $customMessages = [
+            'required' => 'Anda harus mengisi field :attribute.',
+            'unique' => 'Silahkan gunakan nama lain. Nama '.$request['name'].' ini telah digunakan.',
+            'max' => 'Panjang karakter yang anda input melebihi yang seharusnnya',
+        ];
+
+        $this->validate($request, $rules, $customMessages);
+
         $store = Auth::user()->store;
         $product = new Product();
         $product->name = $request['name'];
@@ -82,10 +94,10 @@ class ProductController extends Controller
         $product->save();
 
         //Display a successful message upon save
+
         return redirect()->route('products.index')
             ->with('flash_message', 'Product,
              '. $product->name.' created');
-
 
     }
 
@@ -145,13 +157,6 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($id);
         $product->name = $request['name'];
-
-//        $firstPrice= $request['price'];
-//        $discount= $request['discount'];
-//        $price_discount= $discount/100*$firstPrice;
-//        $lastPrice = $firstPrice - $price_discount;
-//        $product->lastPrice = $lastPrice;
-//        $product->price = $lastPrice;
         $product->price = $request['price'];
         $product->stock = $request['stock'];
         $product->weight = $request['weight'];
@@ -160,11 +165,6 @@ class ProductController extends Controller
         $product->story = $request['story'];
         $product->id_status = $request['status-select'];
         $product->id_category = $request['category-select'];
-
-//        $priceFirst = $request['price'];
-//        $discount= $request['discount'];
-//        $price_discount= $discount/100*$priceFirst;
-//        $lastFirst = $priceFirst - $price_discount;
 
         if($request->hasfile('images'))
         {

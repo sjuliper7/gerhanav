@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
              StatusTransactionTableSeeder::class,
              ProductTableSeeder::class,
              StatusRefundTableSeeder::class,
+             ReviewTableSeeder::class,
          ]);
 
     }

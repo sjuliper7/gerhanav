@@ -16,6 +16,7 @@ class CreateCatalogsTable extends Migration
         Schema::create('catalogs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_product')->unsigned();
+            $table->integer('is_active')->default('1');
             $table->timestamps();
 
             $table->foreign('id_product')->references('id')->on('products');

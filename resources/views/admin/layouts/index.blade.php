@@ -134,6 +134,12 @@
                                 <p>Status Refund</p>
                             </a>
                         </li>
+                        <li style="margin-top: -25px;">
+                            <a href="/reviews">
+                                <i class="ti-link" style="font-size: 17px"></i>
+                                <p>Reviews</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li id="rbac" class="">

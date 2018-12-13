@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
-use App\Review;
+use App\StatusRefund;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class ReviewController extends Controller
+class StatusRefundController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,8 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $reviews = Review::orderBy('id','desc')->get();
-        return view('admin.reviews.index',compact('reviews'));
+        $statusRefunds = StatusRefund::all();
+        return view('admin.status-refunds.index')->with('statusRefund', $statusRefunds);
     }
 
     /**
@@ -27,7 +25,7 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.status-refunds.create');
     }
 
     /**
@@ -38,16 +36,14 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        $user = Auth::user();
-        $review = new Review();
-        $review->rating = $request['rating'];
-        $review->comment = $request['comment'];
-        $review->status = 0;
-        $review->id_product = $request['id_product'];
-        $review->id_user = $user->id;
-        $review->save();
-        $product = Product::find($request['id_product']);
-        return redirect(url('buy/'.$product->name));
+        $statusRefund = new StatusRefund();
+        $statusRefund->status = $request['status'];
+
+        $statusRefund->save();
+
+        return redirect()->route('status-refund.index')
+            ->with('flash_message', 'Status Refund,
+             '. $statusRefund->status.' created');
     }
 
     /**
@@ -69,7 +65,8 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
-        //
+        $statusRefund = StatusRefund::findOrFail($id);
+        return view ('admin.status-refunds.edit', compact('statusRefund'));
     }
 
     /**
@@ -81,19 +78,14 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $review = Review::findOrFail($id);
-        $product  = Product::findOrFail($review->id_product);
-        $reviews = Review::where(['id_product' => $product->id])->get();
-        if(count($reviews) != 0){
-            $product->rating = floor(($product->rating + $review->rating)/count($reviews));
-        }else{
-            $product->rating += $review->rating;
-        }
+        $statusRefund = StatusRefund::findOrFail($id);
+        $statusRefund->status = $request['status'];
 
-        $product->save();
-        $review->status = $request['status'];
-        $review->save();
-        return redirect('reviews');
+        $statusRefund->save();
+
+        return redirect()->route('status-refund.index',
+            $statusRefund->id)->with('flash_message',
+            'Status, '. $statusRefund->status.' updated');
     }
 
     /**
@@ -104,6 +96,11 @@ class ReviewController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $statusRefund = StatusRefund::findOrFail($id);
+        $statusRefund->delete();
+
+        return redirect()->route('status-refund.index')
+            ->with('flash_message',
+                'Status Refund successfully deleted');
     }
 }

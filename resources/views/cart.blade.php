@@ -34,7 +34,11 @@
                                             </div>
                                             <div class="cart_item_price cart_info_col">
                                                 <div class="cart_item_title">Harga</div>
-                                                <div class="cart_item_text" id="{{"price-".$cart->id}}">Rp {{number_format($cart->product->price)}}</div>
+                                                @if($cart->product->discount !=0)
+                                                    <div class="cart_item_text" id="{{"price-".$cart->id}}">Rp {{number_format($cart->product->price-($cart->product->price*$cart->product->discount/100))}}</div>
+                                                @else
+                                                    <div class="cart_item_text" id="{{"price-".$cart->id}}">Rp {{number_format($cart->product->price)}}</div>
+                                                @endif
                                             </div>
                                             <div class="cart_item_total cart_info_col">
                                                 <div class="cart_item_title">Sub Total</div>

@@ -47,6 +47,11 @@ class StatusTransactionTableSeeder extends Seeder
             ]
         );
 
+        DB::table('status_transactions')->insert(
+            [
+                'name' => "Transaksi Batal",
+            ]
+        );
 
     }
 }
