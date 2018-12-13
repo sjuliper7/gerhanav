@@ -51,6 +51,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $rules = [
+            'name'     => 'required|max:90|unique:products',
+        ];
+
+        $customMessages = [
+            'required' => 'Anda harus mengisi field :attribute.',
+            'unique' => 'Silahkan gunakan nama lain. Nama '.$request['name'].' ini telah digunakan.',
+            'max' => 'Panjang karakter yang anda input melebihi yang seharusnnya',
+        ];
+
+        $this->validate($request, $rules, $customMessages);
+
         $store = Auth::user()->store;
         $product = new Product();
         $product->name = $request['name'];

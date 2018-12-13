@@ -839,7 +839,7 @@ select option
 	width: 100%;
 	border-top: solid 1px #f2f2f2;
 	box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
-	background: #FFFFFF;
+	background: #8b1f1a;
 }
 .header.scrolled .main_nav
 {
@@ -1615,8 +1615,8 @@ select option
 .product_panel
 {
 	display: none;
-	margin-left: -60px;
-	margin-right: -60px;
+	/*margin-left: -60px;*/
+	/*margin-right: -60px;*/
 }
 .product_panel.active
 {
@@ -1633,18 +1633,20 @@ select option
 }
 .featured_slider .slick-track
 {
-	padding-bottom: 120px;
+	padding-bottom: 20px;
 }
 .featured_slider_item
 {
 	height: 263px;
-	width: 25%;
+	width: 100%;
 }
 .product_item
 {
-	position: relative;
-	left: -10px;
-	width: calc(100% + 20px);
+	/*position: relative;*/
+	/*width: calc(100% + 20px);*/
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 3px;
+    margin-left: 3px;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -1674,12 +1676,13 @@ select option
 .product_content
 {
 	width: 100%;
+    margin-top: 20px;
 }
 .product_price
 {
 	font-size: 16px;
 	font-weight: 500;
-	margin-top: 25px;
+	/*margin-top: 25px;*/
 }
 .product_price.discount
 {
@@ -1694,6 +1697,7 @@ select option
 }
 .product_name
 {
+    color: black;
 	margin-top: 4px;
 	overflow: hidden;
 }
@@ -1702,7 +1706,7 @@ select option
 	width: 100%;
 	
 }
-.product_name div a
+.product_name a
 {
 	font-size: 14px;
 	font-weight: 400;
@@ -1820,10 +1824,11 @@ select option
 	-ms-transform: translateX(-50%);
 	-o-transform: translateX(-50%);
 	transform: translateX(-50%);
-	bottom: 100px;
+	bottom: 10px;
 }
 .featured_slider .slick-slide
 {
+    width: 200px;
 	outline: none;
 }
 .featured_slider .slick-dots li
@@ -3153,9 +3158,9 @@ select option
 
 .viewed
 {
-	padding-top: 51px;
+	/*padding-top: 51px;*/
 	padding-bottom: 60px;
-	background: #eff6fa;
+	background: #ffffff;
 }
 .viewed_title_container
 {
@@ -3197,12 +3202,13 @@ select option
 }
 .viewed_slider_container
 {
-	padding-top: 50px;
+	padding-top: 10px;
 }
 .viewed_item
 {
 	width: 100%;
 	background: #FFFFFF;
+    border: solid 1px #dadada;
 	border-radius: 8px;
 	padding-top: 25px;
 	padding-bottom: 25px;
@@ -3517,6 +3523,7 @@ select option
 {
 	padding-top: 52px;
 	padding-bottom: 40px;
+    border-top: 1px solid darkred;
 }
 .footer .logo_container
 {
