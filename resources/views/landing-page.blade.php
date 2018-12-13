@@ -137,6 +137,18 @@
                                                                             <p class="font-weight-normal">Pesanan
                                                                                 Saya</p>
                                                                         </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+
+                                                            <a href="/refund-user">
+                                                                <div class="col-md-12">
+                                                                    <div class="row">
+                                                                        <img src="{{asset('images/box_closed.png')}}"
+                                                                             style="max-width:10%;max-height: 10%">
+                                                                        <div class="col-md-6">
+                                                                            <p class="font-weight-normal">Pengembalian</p>
+                                                                        </div>
 
                                                                     </div>
                                                                 </div>
@@ -239,7 +251,7 @@
 
                         <div class="page_menu_search">
                             <form action="#">
-                                <input type="search" required="required" class="page_menu_search_input" placeholder="Cari Produk" style="textcol">
+                                <input type="search" required="required" class="page_menu_search_input" placeholder="Cari Produk" style=""/>
                             </form>
                         </div>
                         <ul class="page_menu_nav">
@@ -394,7 +406,7 @@
 
 @section('content')
     <div class="banner">
-        <div class="banner_background" style="background-image:url('/template/images/banner_background.jpg')"></div>
+        <div class="banner_background" style="background-image:url('/public/template/images/banner_background.jpg')"></div>
         <div class="container fill_height">
             <div class="row fill_height">
                 {{--<div class="banner_product_image"><img src="images/banner_product.png" alt=""></div>--}}
