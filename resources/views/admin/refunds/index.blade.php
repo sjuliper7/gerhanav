@@ -1,0 +1,46 @@
+@extends('admin.layouts.index')
+
+@section('title', '| Refund Product')
+
+@section('content')
+
+    <div class="content">
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="panel panel-default">
+                        {{--<div class="panel-heading"><h3>Status Name</h3></div>--}}
+                        {{--<a href="{{ URL::to('status-refund/create') }}" class="btn btn-success" style="margin-top: 5px; margin-left: 10px">Create Status</a>--}}
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Nama Produk</th>
+                                    <th>Alasan Pengembalian</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($refund as $refund)
+                                <tr>
+                                    <td>{{$refund->id_product}}</td>
+                                    <td>{{$refund->alasan}}</td>
+                                    <td>
+                                        <a href="{{url('refund-admin/'.$refund->id)}}" class="btn btn-info pull-left" style="margin-right: 3px;">Detail</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#brand-title').text("Refund Products")
+            $('#product').addClass("active")
+        });
+    </script>
+@endsection

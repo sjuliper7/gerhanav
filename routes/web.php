@@ -120,4 +120,14 @@ Route::resource('refund','RefundController');
 
 Route::resource('status-refund','StatusRefundController');
 
+Route::get('refund-admin', 'RefundController@indexAdmin');
+
+Route::get('refund-user', 'RefundController@indexUser');
+
+Route::get('refund-admin/{id}','RefundController@detailRefund');
+
+Route::get('reject-refund/{id}','RefundController@rejectRefund');
+
+Route::POST('create-reject/{id}','RefundController@createReject');
+
 Route::get('/test','RajaOngkirController@getProvinces');

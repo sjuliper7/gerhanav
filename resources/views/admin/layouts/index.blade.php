@@ -122,6 +122,18 @@
                                 <p>Catalog Product</p>
                             </a>
                         </li>
+                        <li style="margin-top: -25px;">
+                            <a href="/refund-admin">
+                                <i class="ti-link" style="font-size: 17px"></i>
+                                <p>Manage Refund</p>
+                            </a>
+                        </li>
+                        <li style="margin-top: -25px;">
+                            <a href="/status-refund">
+                                <i class="ti-link" style="font-size: 17px"></i>
+                                <p>Status Refund</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li id="rbac" class="">
