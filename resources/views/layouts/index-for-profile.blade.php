@@ -455,12 +455,12 @@
 
                 <div class="col-lg-3">
                     <div class="row">
-                        <div class="col-sm-2">
+                        <div class="col-sm-2" style="margin-top: 30px;">
                             <img src="{{asset('images/mobile.png')}}"style="width: 40px;height: 80px; ">
                         </div>
 
-                        <div class="col-sm-10">
-                            <a href="" > <h5 style="color: #8b0000"> Dapatkan Aplikasi Mobile BatakZone >></h5></a>
+                        <div class="col-sm-10" style="margin-top: 20px;">
+                            <a href="" > <h5 style="color: #8b0000" > Dapatkan Aplikasi Mobile BatakZone >></h5></a>
 
                             <h5 style="color: #8b0000"> Ikuti Kami</h5>
                             <div class="footer_social">
