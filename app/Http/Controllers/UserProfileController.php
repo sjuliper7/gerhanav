@@ -111,16 +111,6 @@ class UserProfileController extends Controller
             $profile->profile_image = $filename;
         }
 
-//        $profile->profile_image = $request['profile_image'];
-//        $profile->description = $request['description'];
-//
-//        $file       = $request->file('image_profile');
-//        $fileName   = $file->getClientOriginalName();
-//        if($fileName != $profile->image){
-//            $request->file('image')->move('images/',$fileName);
-//            $profile->profile_image = $fileName;
-//        }
-
         $profile->save();
 
         return redirect()->route('user-profile.index',
