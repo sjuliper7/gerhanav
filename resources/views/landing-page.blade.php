@@ -115,18 +115,21 @@
                                             <li>
                                                 <div class="container">
                                                     <div class="row">
+
                                                         <div class="col-md-12">
-                                                            <div class="col-md-12" style="margin-bottom: -5em">
-                                                                <div class="row">
-                                                                    <img src="{{asset('images/kelola_akun.png')}}"
-                                                                         style="max-width:10%;max-height: 10%">
-                                                                    <div class="text-left col-md-6">
-                                                                        <p class="font-weight-normal">Kelola Akun</p>
+                                                            <a href="/user-profile">
+                                                                <div class="col-md-12" style="margin-bottom: -5em">
+                                                                    <div class="row">
+                                                                        <img src="{{asset('images/kelola_akun.png')}}"
+                                                                             style="max-width:10%;max-height: 10%">
+                                                                        <div class="text-left col-md-6">
+                                                                            <p class="font-weight-normal">Kelola Akun</p>
+                                                                        </div>
+
                                                                     </div>
 
                                                                 </div>
-
-                                                            </div>
+                                                            </a>
 
                                                             <a href="/transactions">
                                                                 <div class="col-md-12">
