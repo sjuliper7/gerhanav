@@ -35,20 +35,18 @@
         }
     </style>
 
-    <div class="header_main"style="max-height: 10em;margin-top: -3em;">
+    <div class="header_main" style="max-height: 10em; margin-top: -1em">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div class="header_main"style="max-height: 10em">
         <div class="container">
             <div class="row">
-
                 <!-- Logo -->
                 <div class="col-lg-2 col-sm-3 col-3 order-1">
                     <div class="logo_container">
                         <div class="logo"><a href="/" style="color: #8b0000">BatakZone</a></div>
                     </div>
                 </div>
-
                 <!-- Search -->
                 <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
                     <div class="header_search">
@@ -94,11 +92,16 @@
 
                         <div class="top_bar_user">
                             @if(Auth::guest())
-                                <div style="margin-right: 2em">
-                                    <a type="text" href="/login" class="" style="color: #8b0000"> Masuk</a>
-                                </div>
-                                <div>
-                                    <a type="text" href="/register" class="">Daftar </a>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <div class="col-6 col-lg-6 col-sm-6 col-md-6">
+                                            <a type="text" href="/login" class="" style="color: #8b0000;"> Masuk</a>
+                                        </div>
+                                        <div hidden>asd</div>
+                                        <div class="col-5 col-lg-5 col-sm-5 col-md-5">
+                                            <a type="text" href="/register" class="">Daftar </a>
+                                        </div>
+                                    </div>
                                 </div>
 
                             @else
@@ -507,17 +510,18 @@
                         </div>
                     {{--</a>--}}
                 </div>
-
                 <!-- Char. Item -->
                 <div class="col-lg-4 col-md-6 char_col">
                     {{--<a href="#">--}}
-                        <div class=" d-flex flex-row align-items-center justify-content-center">
-                            <div class="char_icon"><img src="images/contact_1.png" alt=""></div>
-                            <div class="char_content">
-                                <div class="char_title">Support</div>
-                                <div class="char_subtitle">Layanan 24 Jam</div>
-                            </div>
+                    <div class="d-flex flex-row align-items-center justify-content-center">
+                        <div class="char_icon">
+                            <img src="images/contact_1.png">
                         </div>
+                        <div class="char_content">
+                            <div class="char_title">Support</div>
+                            <div class="char_subtitle">Layanan 24 Jam</div>
+                        </div>
+                    </div>
                     {{--</a>--}}
                 </div>
 
