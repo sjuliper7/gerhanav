@@ -35,8 +35,9 @@
         }
     </style>
 
-    <div class="header_main"style="max-height: 10em;margin-top: -3em;">
+    <div class="header_main" style="max-height: 10em; margin-top: -1em">
 
+<<<<<<< HEAD
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <div class="header_main"style="max-height: 10em">
             <div class="container">
@@ -67,6 +68,35 @@
                                                     @endforeach
                                                 </ul>
                                             </div>
+=======
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="header_main"style="max-height: 10em">
+        <div class="container">
+            <div class="row">
+                <!-- Logo -->
+                <div class="col-lg-2 col-sm-3 col-3 order-1">
+                    <div class="logo_container">
+                        <div class="logo"><a href="/" style="color: #8b0000">BatakZone</a></div>
+                    </div>
+                </div>
+                <!-- Search -->
+                <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+                    <div class="header_search">
+                        <div class="header_search_content">
+                            <div class="header_search_form_container">
+                                <form action="#" class="header_search_form clearfix">
+                                    <input type="search" required="required" id="myInput" class="header_search_input" placeholder="Cari Produk">
+                                    <input type="text" name="category" id="input_category" hidden>
+                                    <div class="custom_dropdown">
+                                        <div class="custom_dropdown_list">
+                                            <span class="custom_dropdown_placeholder clc">Semua Kategori</span>
+                                            <i class="fas deals_featuredfa-chevron-down"></i>
+                                            <ul class="custom_list clc">
+                                                @foreach($categoryProducts as $categoryProduct)
+                                                    <li><a class="clc" href="{{url('/products-by/'.$categoryProduct->name)}}">{{$categoryProduct->name}}</a></li>
+                                                @endforeach
+                                            </ul>
+>>>>>>> development
                                         </div>
                                         <button type="submit" class="header_search_button trans_300"style="background-color: #8b0000" value="Submit"><img src="{{asset('template/images/search.png')}}" alt=""></button>
                                     </form>
@@ -92,6 +122,7 @@
                                 </div>
                             </div>
 
+<<<<<<< HEAD
                             <div class="top_bar_user">
                                 @if(Auth::guest())
                                     <div style="margin-right: 2em">
@@ -100,6 +131,21 @@
                                     <div>
                                         <a type="text" href="/register" class="">Daftar </a>
                                     </div>
+=======
+                        <div class="top_bar_user">
+                            @if(Auth::guest())
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <div class="col-6 col-lg-6 col-sm-6 col-md-6">
+                                            <a type="text" href="/login" class="" style="color: #8b0000;"> Masuk</a>
+                                        </div>
+                                        <div hidden>asd</div>
+                                        <div class="col-5 col-lg-5 col-sm-5 col-md-5">
+                                            <a type="text" href="/register" class="">Daftar </a>
+                                        </div>
+                                    </div>
+                                </div>
+>>>>>>> development
 
                                 @else
                                     <div class="top_bar_user" style="width:20em;margin-right: -10em; margin-left: -1em">
@@ -443,12 +489,18 @@
                     </div>
                     {{--</a>--}}
                 </div>
-
                 <!-- Char. Item -->
                 <div class="col-lg-4 col-md-6 char_col">
                     {{--<a href="#">--}}
+<<<<<<< HEAD
                     <div class=" d-flex flex-row align-items-center justify-content-center">
                         <div class="char_icon"><img src="images/contact_1.png" alt=""></div>
+=======
+                    <div class="d-flex flex-row align-items-center justify-content-center">
+                        <div class="char_icon">
+                            <img src="images/contact_1.png">
+                        </div>
+>>>>>>> development
                         <div class="char_content">
                             <div class="char_title">Support</div>
                             <div class="char_subtitle">Layanan 24 Jam</div>

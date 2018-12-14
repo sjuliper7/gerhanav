@@ -43,8 +43,6 @@
     <header class="header">
 
         <!-- Top Bar -->
-
-
         @yield('header')
 
     </header>
