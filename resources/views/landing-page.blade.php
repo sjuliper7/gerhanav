@@ -508,8 +508,23 @@
                                                     <div class="product_name">
                                                         <a href="{{ URL::to('buy/'. $catalog->product->name ) }}">{{$catalog->product->name}}</a>
                                                     </div>
-                                                    <div class="product_price discount">Rp. {{$catalog->product->price}}</div>
+
+                                                    <div class="bestsellers_item discount">
+                                                        @if($catalog->product->discount !=0)
+                                                            <div class="bestsellers_price discount">Rp.{{$catalog->product->price-($catalog->product->price*$catalog->product->discount/100)}}<span>Rp.{{$catalog->product->price}}</span></div>
+                                                        @else
+                                                            <div class="product_price">Rp. {{number_format($catalog->product->price,0)}}</div>
+                                                        @endif
+                                                    </div>
                                                 </div>
+
+                                                    <ul class="product_marks">
+                                                        @if($catalog->product->discount!=0)
+                                                            <li class="product_mark product_discount">{{$catalog->product->discount}}%</li>
+                                                            <li class="product_mark product_new">new</li>
+                                                        @endif
+                                                    </ul>
+
                                             </div>
                                         </div>
                                     @endforeach
@@ -531,10 +546,6 @@
                         <div class="card-header" style="background-color: white; border: none; padding: 0px;">
                             <h3 class="viewed_title">Paling Banyak Dilihat</h3>
                             <div class="tabs_line"><span style="background-color: #8b0000"></span></div>
-                            {{--<div class="viewed_nav_container">--}}
-                                {{--<div class="viewed_nav viewed_prev"><i class="fas fa-chevron-left"></i></div>--}}
-                                {{--<div class="viewed_nav viewed_next"><i class="fas fa-chevron-right"></i></div>--}}
-                            {{--</div>--}}
                     </div>
 
                     <div class="card-body">
@@ -556,8 +567,22 @@
 
                                             <div class="product_content text-center">
                                                 <div class="product_name"><a href="#">{{$mv->name}}</a></div>
-                                                <div class="product_price discount">Rp {{number_format($mv->price)}}</div>
+                                                    <div class="bestsellers_item discount">
+                                                        @if($mv->discount !=0)
+                                                            <div class="bestsellers_price discount">Rp.{{$mv->price-($mv->price*$mv->discount/100)}}<span>Rp.{{$mv->price}}</span></div>
+                                                        @else
+                                                            <div class="product_price">Rp {{number_format($mv->price)}}</div>
+                                                        @endif
+                                                    </div>
                                             </div>
+
+                                            <ul class="product_marks">
+                                                    @if($mv->discount!=0)
+                                                        <li class="product_mark product_discount">{{$mv->discount}}</li>
+                                                        <li class="product_mark product_new">new</li>
+                                                    @endif
+                                            </ul>
+
                                         </div>
                                     </div>
                                 @endforeach
