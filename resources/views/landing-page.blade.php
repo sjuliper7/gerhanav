@@ -479,6 +479,8 @@
         <div class="container">
             <div class="row">
                 <div class="col">
+
+
                     <div class="card" style="background-color: white; border: none">
                         <div class="card-header" style="background-color: white; border: none; padding: 0px;">
                             <h3 class="viewed_title">Produk Terbaru</h3>
@@ -494,34 +496,31 @@
                                 @foreach($catalogs as $catalog)
                                     <!-- Slider Item -->
                                         <div class="owl-item">
-                                            <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                                 <?php
                                                 $images = json_decode($catalog->product->images);
                                                 ?>
-                                                <div class="product_image d-flex flex-column align-items-center justify-content-center">
+                                                <div class="viewed_image">
                                                     <a href="{{ URL::to('buy/' . $catalog->product->name ) }}">
-                                                        <img src="{{ asset('images/'.$images[0])  }}" style="width:150px;height:150px; object-fit: cover;">
+                                                        <img src="{{ asset('images/'.$images[0])  }}" >
                                                     </a>
                                                 </div>
 
-                                                <div class="product_content">
-                                                    <div class="product_name">
-                                                        <a href="{{ URL::to('buy/'. $catalog->product->name ) }}">{{$catalog->product->name}}</a>
-                                                    </div>
-
-                                                    <div class="bestsellers_item discount">
+                                                    <div class="viewed_content text-center">
                                                         @if($catalog->product->discount !=0)
-                                                            <div class="bestsellers_price discount">Rp.{{$catalog->product->price-($catalog->product->price*$catalog->product->discount/100)}}<span>Rp.{{$catalog->product->price}}</span></div>
+                                                            <div class="viewed_price">Rp.{{$catalog->product->price-($catalog->product->price*$catalog->product->discount/100)}}<span>Rp.{{$catalog->product->price}}</span></div>
+                                                            <div class="viewed_name" >{{$catalog->product->name}}</div>
                                                         @else
-                                                            <div class="product_price">Rp. {{number_format($catalog->product->price,0)}}</div>
+                                                            <div class="viewed_price">Rp. {{number_format($catalog->product->price,0)}}</div>
+                                                            <div class="viewed_name">{{$catalog->product->name}}</div>
                                                         @endif
                                                     </div>
-                                                </div>
 
-                                                    <ul class="product_marks">
+
+                                                    <ul class="item_marks">
                                                         @if($catalog->product->discount!=0)
-                                                            <li class="product_mark product_discount">{{$catalog->product->discount}}%</li>
-                                                            <li class="product_mark product_new">new</li>
+                                                            <li class="item_mark item_discount">{{$catalog->product->discount}}%</li>
+                                                            <li class="item_mark item_new">new</li>
                                                         @endif
                                                     </ul>
 
@@ -554,34 +553,35 @@
 
                                 @foreach($mostProductView as $mv)
                                     <div class="owl-item">
-                                        <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+
                                             <?php
                                                 $images = json_decode($mv->images);
                                             ?>
 
-                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
-                                                <a href="#">
-                                                    <img src="{{asset('images/'.$images[0])}}" style="width:150px;height:150px; object-fit: cover;">
+                                            <div class="viewed_image">
+                                                <a href="{{ URL::to('buy/' . $catalog->product->name ) }}">
+                                                    <img src="{{ asset('images/'.$images[0])  }}" >
                                                 </a>
                                             </div>
 
-                                            <div class="product_content text-center">
-                                                <div class="product_name"><a href="#">{{$mv->name}}</a></div>
-                                                    <div class="bestsellers_item discount">
-                                                        @if($mv->discount !=0)
-                                                            <div class="bestsellers_price discount">Rp.{{$mv->price-($mv->price*$mv->discount/100)}}<span>Rp.{{$mv->price}}</span></div>
-                                                        @else
-                                                            <div class="product_price">Rp {{number_format($mv->price)}}</div>
-                                                        @endif
-                                                    </div>
-                                            </div>
-
-                                            <ul class="product_marks">
-                                                    @if($mv->discount!=0)
-                                                        <li class="product_mark product_discount">{{$mv->discount}}</li>
-                                                        <li class="product_mark product_new">new</li>
+                                                <div class="viewed_content text-center">
+                                                    @if($catalog->product->discount !=0)
+                                                        <div class="viewed_price">Rp.{{$catalog->product->price-($catalog->product->price*$catalog->product->discount/100)}}<span>Rp.{{$catalog->product->price}}</span></div>
+                                                        <div class="viewed_name" >{{$catalog->product->name}}</div>
+                                                    @else
+                                                        <div class="viewed_price">Rp. {{number_format($catalog->product->price,0)}}</div>
+                                                        <div class="viewed_name">{{$catalog->product->name}}</div>
                                                     @endif
-                                            </ul>
+                                                </div>
+
+
+                                                <ul class="item_marks">
+                                                    @if($mv->discount!=0)
+                                                    <li class="item_mark item_discount">{{$mv->discount}}%</li>
+                                                    <li class="item_mark item_new">new</li>
+                                                    @endif
+                                                </ul>
 
                                         </div>
                                     </div>
@@ -592,6 +592,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
     </div>
 @endsection
