@@ -3217,8 +3217,9 @@ select option
 }
 .viewed_image
 {
-	width: 115px;
-	height: 115px;
+	width: 150px;
+	height: 150px;
+    object-fit:scale-down;
 }
 .viewed_image img
 {
@@ -3228,7 +3229,6 @@ select option
 .viewed_content
 {
 	width: 100%;
-	margin-top: 25px;
 }
 .viewed_price
 {
