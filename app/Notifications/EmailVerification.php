@@ -44,7 +44,8 @@ class EmailVerification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject(Lang::getFromJson('Verify Email Address'))
+            ->subject(Lang::getFromJson('BatakZone Verify Email Address'))
+            ->greeting(Lang::getFromJson('Horas..'))
             ->line(Lang::getFromJson('Please click the button below to verify your email address.'))
             ->action(
                 Lang::getFromJson('Verify Email Address'),
