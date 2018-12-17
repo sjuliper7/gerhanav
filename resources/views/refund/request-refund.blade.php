@@ -8,16 +8,19 @@
         <div class="row mt-3 ml-1">
             <div class="modal-body">
                 <div class="container-fluid">
-                    <form action="/refund" method="POST">
+                    <form action="/request-refund" method="POST">
                         {{csrf_field()}}
                         <input type="hidden" name="id_product" class="form-control" placeholder="Status" data-error="Please enter name" required>
                         <input type="hidden" name="id_transaction" class="form-control" placeholder="Status" data-error="Please enter name" required>
                         <div class="row mt-3">
-                            <div class="cart_item_image"><img src="http://127.0.0.1:8000/template/images/cart.png" style="height: 100%;width: 100%" alt=""></div>
+                            <?php
+                            $images = json_decode($product->images);
+                            ?>
+                            <div class="cart_item_image"><img src="{{ asset('images/'.$images[0]) }}" style="height: 100%;width: 100%" alt=""></div>
                             <div class="col-md-4">
-                                <div class="card-text">Nama Toko</div>
-                                <div class="cart_title">Nama Toko</div>
-                                <div class="cart_price">Jumlah: 1</div>
+                                <div class="card-text">{{$product->store->store_name}}</div>
+                                <div class="cart_title">{{$product->name}}</div>
+                                <div class="cart_price">Jumlah: </div>
                             </div>
                             <div class="col-md-4 ml-auto">
                                 <select name="alasan-select" id="alasan" class="form-control">

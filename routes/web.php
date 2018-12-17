@@ -123,3 +123,5 @@ Route::get('/test','RajaOngkirController@getProvinces');
 Route::Post('/add-catalog/{id}','CatalogController@save');
 
 Route::get('/list-catalog','CatalogController@list');
+
+Route::resource('request-refund', 'RequestRefundController');
