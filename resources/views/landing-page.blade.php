@@ -564,18 +564,18 @@
                                             ?>
 
                                             <div class="viewed_image">
-                                                <a href="{{ URL::to('buy/' . $catalog->product->name ) }}">
+                                                <a href="{{ URL::to('buy/' . $mv->name ) }}">
                                                     <img src="{{ asset('images/'.$images[0])  }}" >
                                                 </a>
                                             </div>
 
                                                 <div class="viewed_content text-center">
-                                                    @if($catalog->product->discount !=0)
-                                                        <div class="viewed_price">Rp.{{$catalog->product->price-($catalog->product->price*$catalog->product->discount/100)}}<span>Rp.{{$catalog->product->price}}</span></div>
+                                                    @if($mv->discount !=0)
+                                                        <div class="viewed_price">Rp.{{$mv->price-($mv->price*$mv->discount/100)}}<span>Rp.{{$mv->price}}</span></div>
                                                         <div class="viewed_name" >{{$catalog->product->name}}</div>
                                                     @else
-                                                        <div class="viewed_price">Rp. {{number_format($catalog->product->price,0)}}</div>
-                                                        <div class="viewed_name">{{$catalog->product->name}}</div>
+                                                        <div class="viewed_price">Rp. {{number_format($mv->price,0)}}</div>
+                                                        <div class="viewed_name">{{$mv->name}}</div>
                                                     @endif
                                                 </div>
 
