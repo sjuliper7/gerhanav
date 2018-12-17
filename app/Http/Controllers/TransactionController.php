@@ -62,7 +62,7 @@ class TransactionController extends Controller
 
     public function confirmPayment(Request $request)
     {
-        $carts = Auth::user()->carts;
+        $carts = Cart::where(['id_user' => Auth::user()->id, 'is_active' => true])->get();
         $statusTransactions = StatusTransaction::where(['name' => "Menunggu Pembayaran"])->firstOrFail();
 
         $transaction = new Transaction();
