@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Cart</title>
+    <title>Biodata Diri</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="OneTech shop project">
+    <meta name="description" content="BatakZone shop project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{!! asset('template/styles/bootstrap4/bootstrap.min.css') !!}">
-    <link rel="stylesheet" type="text/css"
-          href="{!! asset('template/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css') !!}">
-    <link rel="stylesheet" type="text/css" href="{!! asset('template/styles/cart_styles.css') !!}">
-    <link rel="stylesheet" type="text/css" href="{!! asset('template/styles/cart_responsive.css') !!}">
-    <link rel="stylesheet" type="text/css" href="{!! asset('template/styles/product_styles.css') !!}">
-    <link rel="stylesheet" type="text/css" href="{!! asset('template/styles/product_responsive.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('template/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('template/plugins/OwlCarousel2-2.2.1/owl.carousel.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('template/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('template/plugins/jquery-ui-1.12.1.custom/jquery-ui.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('template/plugins/OwlCarousel2-2.2.1/animate.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('template/styles/shop_styles.css') !!}">
+    <link rel="stylesheet" type="text/css" href="{!! asset('template/styles/shop_responsive.css') !!}">
     <script src="{!! asset('template/js/jquery-3.3.1.min.js') !!}"></script>
     <script src="{!! asset('template/styles/bootstrap4/popper.js') !!}"></script>
     <script src="{!! asset('template/styles/bootstrap4/bootstrap.min.js') !!}"></script>
@@ -21,8 +22,49 @@
     <script src="{!! asset('template/plugins/scrollmagic/ScrollMagic.min.js') !!}"></script>
     <script src="{!! asset('template/plugins/greensock/animation.gsap.min.js') !!}"></script>
     <script src="{!! asset('template/plugins/greensock/ScrollToPlugin.min.js') !!}"></script>
+    <script src="{!! asset('template/plugins/OwlCarousel2-2.2.1/owl.carousel.js') !!}"></script>
     <script src="{!! asset('template/plugins/easing/easing.js') !!}"></script>
-    <script src="{!! asset('template/js/cart_custom.js') !!}"></script>
+    <script src="{!! asset('template/plugins/Isotope/isotope.pkgd.min.js') !!}"></script>
+    <script src="{!! asset('template/plugins/jquery-ui-1.12.1.custom/jquery-ui.js') !!}"></script>
+    <script src="{!! asset('template/plugins/parallax-js-master/parallax.min.js') !!}"></script>
+    <script src="{!! asset('template/js/shop_custom.js') !!}"></script>
+
+    <!-- Bootstrap core CSS     -->
+    <link href="{!! asset('admin/css/bootstrap.min.css') !!}" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="{!! asset('admin/css/animate.min.css') !!}" rel="stylesheet" />
+
+    <!--  Paper Dashboard core CSS    -->
+    <link href="{!! asset('admin/css/paper-dashboard.css') !!}" rel="stylesheet" />
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="{{asset('admin/css/demo.css')}}" rel="stylesheet" />
+
+
+    <!--  Fonts and icons     -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="{!! asset('admin/css/themify-icons.css') !!}" rel="stylesheet">
+
+    <!--   Core JS Files   -->
+    <script src="{!! asset('admin/js/jquery.min.js') !!}" type="text/javascript"></script>
+    <script src="{!! asset('admin/js/bootstrap.min.js') !!}" type="text/javascript"></script>
+
+    <!--  Checkbox, Radio & Switch Plugins -->
+    <script src="{!! asset('admin/js/bootstrap-checkbox-radio.js') !!}"></script>
+
+    <!--  Charts Plugin -->
+    <script src="{!! asset('admin/js/chartist.min.js') !!}"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="{!! asset('admin/js/bootstrap-notify.js') !!}"></script>
+
+    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+    <script src="{{asset('admin/js/paper-dashboard.js')}}"></script>
+
+    <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+    <script src="{{asset('assets/js/demo.js')}}"></script>
 
 </head>
 
@@ -35,6 +77,7 @@
     <header class="header">
 
         <!-- Top Bar -->
+
 
 
         <!-- Header Main -->
@@ -56,25 +99,10 @@
                             <div class="header_search_content">
                                 <div class="header_search_form_container">
                                     <form action="#" class="header_search_form clearfix">
-                                        <input type="search" required="required" class="header_search_input"
-                                               placeholder="Cari produk...">
-                                        <div class="custom_dropdown">
-                                            <div class="custom_dropdown_list">
-                                                <span class="custom_dropdown_placeholder clc">Semua kategori</span>
-                                                <i class="fas fa-chevron-down"></i>
-                                                <ul class="custom_list clc">
-                                                    <li><a class="clc" href="#">Pakaian</a></li>
-                                                    <li><a class="clc" href="#">Cenderamata</a></li>
-                                                    <li><a class="clc" href="#">Ukiran</a></li>
-                                                    <li><a class="clc" href="#">Patung</a></li>
-                                                    <li><a class="clc" href="#">Buku</a></li>
+                                        <input type="search" required="required" class="header_search_input" placeholder="Cari produk...">
 
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="header_search_button trans_300"
-                                                style="background-color: #8b0000" value="Submit"><img
-                                                src="{{asset('/template/images/search.png')}}" alt=""></button>
+                                        <button type="submit" class="header_search_button trans_300" style="background-color: #8b0000" value="Submit"><img src="{{asset('/template/images/search.png
+                                        ')}}" alt=""></button>
                                     </form>
                                 </div>
                             </div>
@@ -90,7 +118,7 @@
                                 <div class="cart_container d-flex flex-row align-items-center justify-content-end">
                                     <div class="cart_icon">
                                         <img src="{{asset('template/images/cart.png')}}" alt="">
-                                        <div class="cart_count" style="background-color: #8b0000"><span id="cart_value">0</span></div>
+                                        <div class="cart_count"style="background-color: #8b0000"><span id="cart_value">0</span></div>
                                     </div>
                                     <div class="cart_content">
                                         <div class="cart_text"><a href="/carts">Keranjang</a></div>
@@ -210,16 +238,15 @@
                 <div class="row">
                     <div class="col">
 
-                        <div class="main_nav_content d-flex flex-row" style="background-color: #8b0000">
+                        <div class="main_nav_content d-flex flex-row"style="background-color: #8b0000">
 
-                            <!-- Categories Menu -->
+                            <!-- Kategori Menu -->
 
-                            <div class="cat_menu_container" style="background-color: #8b0000">
+                            <div class="cat_menu_container"style="background-color: #8b0000">
                                 <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
                                     <div class="cat_burger"><span></span><span></span><span></span></div>
                                     <div class="cat_menu_text">Kategori</div>
                                 </div>
-
                                 <ul class="cat_menu">
                                     @foreach($categoryProducts as $categoryProduct)
                                         <li><a href="{{url('/products-by/'.$categoryProduct->name)}}">{{$categoryProduct->name}}<i class="fas fa-chevron-right ml-auto"></i></a></li>
@@ -229,17 +256,13 @@
 
                             <!-- Main Nav Menu -->
 
-                            <div class="main_nav_menu ml-auto" style="background-color: #8b0000;margin-right: 2em">
+                            <div class="main_nav_menu ml-auto"style="background-color: #8b0000;margin-right: 2em">
                                 <ul class="standard_dropdown main_nav_dropdown">
-                                    <li><a href="/" class="text-white">Home<i class="fas fa-chevron-down "></i></a>
-                                    </li>
-                                    <li><a href="#" class="text-white">Contact<i class="fas fa-chevron-down"></i></a>
-                                    </li>
-                                    <li><a href="/my-store" class="text-white">My Store<i
-                                                class="fas fa-chevron-down"></i></a></li>
+                                    <li><a href="/" class="text-white">Home<i class="fas fa-chevron-down "></i></a></li>
+                                    <li><a href="#"class="text-white">Contact<i class="fas fa-chevron-down"></i></a></li>
+                                    <li><a href="/my-store"class="text-white">My Store<i class="fas fa-chevron-down"></i></a></li>
                                 </ul>
                             </div>
-
 
                             <!-- Menu Trigger -->
 
@@ -247,8 +270,7 @@
                                 <div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
                                     <div class="menu_burger">
                                         <div class="menu_trigger_text">menu</div>
-                                        <div class="cat_burger menu_burger_inner">
-                                            <span></span><span></span><span></span></div>
+                                        <div class="cat_burger menu_burger_inner"><span></span><span></span><span></span></div>
                                     </div>
                                 </div>
                             </div>
@@ -342,8 +364,6 @@
                                         </ul>
                                     </div>
                                 @endif
-
-
                             </div>
 
                             <div class="page_menu_search">
@@ -393,7 +413,10 @@
         </script>
     </header>
 
+    <!-- Home -->
+
 @yield('content')
+
 
 <!-- Newsletter -->
 
@@ -408,10 +431,8 @@
                     <div class="footer_column">
                         <div class="footer_title"><h4>BatakZone</h4></div>
                         <ul class="footer_list">
-                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Tentang Kami</h5></a>
-                            </div>
-                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Hubungi Kami</h5></a>
-                            </div>
+                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Tentang Kami</h5></a></div>
+                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Hubungi Kami</h5></a></div>
                         </ul>
 
                     </div>
@@ -422,10 +443,8 @@
                     <div class="footer_column">
                         <div class="footer_title"><h4>Beli</h4></div>
                         <ul class="footer_list">
-                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Cara Belanja</h5></a>
-                            </div>
-                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Pembayaran</h5></a>
-                            </div>
+                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Cara Belanja</h5></a></div>
+                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Pembayaran</h5></a></div>
                         </ul>
                     </div>
                 </div>
@@ -434,10 +453,8 @@
                     <div class="footer_column">
                         <div class="footer_title"><h4>Jual</h4></div>
                         <ul class="footer_list">
-                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Cara Berjualan
-                                        Online</h5></a></div>
-                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Pencairan Dana</h5></a>
-                            </div>
+                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Cara Berjualan Online</h5></a></div>
+                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Pencairan Dana</h5></a></div>
                         </ul>
                     </div>
                 </div>
@@ -446,19 +463,11 @@
                     <div class="footer_column">
                         <div class="footer_title"><h4>Bantuan</h4></div>
                         <ul class="footer_list">
-                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Syarat dan
-                                        Ketentuan</h5></a></div>
-                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Kebijakan Privasi</h5>
-                                </a></div>
+                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Syarat dan Ketentuan</h5></a></div>
+                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Kebijakan Privasi</h5></a></div>
 
-                            <div class="" style="margin-bottom: 1em"><img src="{{asset('images/phone_icon.png')}}"
-                                                                          style="max-width: 100%;max-height: 100%">+62
-                                821-6548-5311
-                            </div>
-                            <div class="" style="margin-bottom: 1em"><img src="{{asset('images/email_icon.png')}}"
-                                                                          style="max-width: 100%;max-height: 100%">
-                                cs@batakzone.com
-                            </div>
+                            <div class=""style="margin-bottom: 1em"><img src="{{asset('images/phone_icon.png')}}"style="max-width: 100%;max-height: 100%">+62 821-6548-5311</div>
+                            <div class=""style="margin-bottom: 1em"><img src="{{asset('images/email_icon.png')}}"style="max-width: 100%;max-height: 100%"> cs@batakzone.com</div>
 
                         </ul>
                     </div>
@@ -466,17 +475,17 @@
 
                 <div class="col-lg-3">
                     <div class="row">
-                        <div class="col-sm-2">
+                        <div class="col-sm-2" style="margin-top: 30px;">
                             <img src="{{asset('images/mobile.png')}}"style="width: 40px;height: 80px; ">
                         </div>
 
-                        <div class="col-sm-10">
-                            <a href="" > <h5 style="color: #8b0000"> Dapatkan Aplikasi Mobile BatakZone >></h5></a>
+                        <div class="col-sm-10" style="margin-top: 20px;">
+                            <a href="" > <h5 style="color: #8b0000" > Dapatkan Aplikasi Mobile BatakZone >></h5></a>
 
                             <h5 style="color: #8b0000"> Ikuti Kami</h5>
                             <div class="footer_social">
                                 <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f" style="color: #8b0000"></i></a></li>
+                                    <li ><a href="#"><i class="fab fa-facebook-f" style="color: #8b0000"></i></a></li>
                                     <li><a href="#"><i class="fab fa-twitter" style="color: #8b0000"></i></a></li>
                                     <li><a href="#"><i class="fab fa-youtube" style="color: #8b0000"></i></a></li>
                                     <li><a href="#"><i class="fab fa-google" style="color: #8b0000"></i></a></li>
@@ -490,6 +499,7 @@
             </div>
         </div>
     </footer>
+
     <!-- Copyright -->
 
     <div class="copyright">
@@ -497,14 +507,9 @@
             <div class="row">
                 <div class="col">
 
-                    <div
-                        class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
-                        <div class="copyright_content">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                            All rights reserved | This template is made with <i class="fa fa-heart"
-                                                                                aria-hidden="true"></i> by <a
-                                href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
+                        <div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
                         <div class="logos ml-sm-auto">
@@ -520,9 +525,28 @@
             </div>
         </div>
     </div>
-
 </div>
 
 </body>
+<script src="assets/js/jquery.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!--  Checkbox, Radio & Switch Plugins -->
+<script src="assets/js/bootstrap-checkbox-radio.js"></script>
+
+<!--  Charts Plugin -->
+<script src="assets/js/chartist.min.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="assets/js/bootstrap-notify.js"></script>
+
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+<!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+<script src="assets/js/paper-dashboard.js"></script>
+
+<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+<script src="assets/js/demo.js"></script>
 
 </html>

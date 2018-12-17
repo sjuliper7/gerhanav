@@ -75,16 +75,6 @@
                                     </div>
                                     <button class="btn btn-lg btn-primary btn-block text-uppercase rounded" type="submit">Sign in
                                     </button>
-
-                                    <hr class="my-2">
-
-                                    <button class="btn btn-lg btn-google btn-block text-uppercase rounded" type="submit"
-                                            style="background: #ea4335"><i class="fab fa-google mr-2"></i> Sign in with
-                                        Google
-                                    </button>
-                                    <button class="btn btn-lg btn-facebook btn-block text-uppercase rounded" type="submit"><i
-                                            class="fab fa-facebook-f mr-2"></i> Sign in with Facebook
-                                    </button>
                                 </form>
                             </div>
                         </div>
