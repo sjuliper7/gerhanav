@@ -69,4 +69,8 @@ class User extends Authenticatable implements MustVerifyEmail
     public function refunds(){
         return $this->hasMany('App\Refund','id_user');
     }
+
+    public function requestRefund(){
+        return $this->hasMany('App\RequestRefund','id_user');
+    }
 }
