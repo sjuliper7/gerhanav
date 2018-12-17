@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use App\CategoryProduct;
 use App\DetailTransaction;
 use App\RefBank;
