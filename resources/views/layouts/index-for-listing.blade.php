@@ -98,11 +98,16 @@
 
                             <div class="top_bar_user">
                                 @if(Auth::guest())
-                                    <div style="margin-right: 2em">
-                                        <a type="text" href="/login" class="" style="color: #8b0000"> Masuk</a>
-                                    </div>
-                                    <div>
-                                        <a type="text" href="/register" class="">Daftar </a>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-12">
+                                            <div class="col-6 col-lg-6 col-sm-6 col-md-6">
+                                                <a type="text" href="/login" class="" style="color: #8b0000;"> Masuk</a>
+                                            </div>
+                                            <div hidden>asd</div>
+                                            <div class="col-5 col-lg-5 col-sm-5 col-md-5">
+                                                <a type="text" href="/register" class="">Daftar </a>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 @else
@@ -119,6 +124,7 @@
                                             <li>
                                                 <div class="container">
                                                     <div class="row">
+
                                                         <div class="col-md-12">
                                                             <a href="/user-profile">
                                                                 <div class="col-md-12" style="margin-bottom: -5em">
@@ -128,9 +134,12 @@
                                                                         <div class="text-left col-md-6">
                                                                             <p class="font-weight-normal">Kelola Akun</p>
                                                                         </div>
+
                                                                     </div>
+
                                                                 </div>
                                                             </a>
+
                                                             <a href="/transactions">
                                                                 <div class="col-md-12">
                                                                     <div class="row">
@@ -139,6 +148,18 @@
                                                                         <div class="col-md-6">
                                                                             <p class="font-weight-normal">Pesanan
                                                                                 Saya</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+
+                                                            <a href="/refund-user">
+                                                                <div class="col-md-12">
+                                                                    <div class="row">
+                                                                        <img src="{{asset('images/box_closed.png')}}"
+                                                                             style="max-width:10%;max-height: 10%">
+                                                                        <div class="col-md-6">
+                                                                            <p class="font-weight-normal">Pengembalian</p>
                                                                         </div>
 
                                                                     </div>
