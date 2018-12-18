@@ -1,4 +1,4 @@
-@extends('layouts.index-for-profile')
+@extends('layouts.index-for-detail')
 
 @section('title', '| User Profile')
 
@@ -115,9 +115,11 @@
                                     @endif
                                 </td>
                             </tr>
+
                             <tr>
+                                <td></td>
                                 <td>
-                                    <a class="btn btn-small btn-info" href="{{ URL::to('user-profile/' . $profile->id . '/edit') }}">Edit Profile</a>
+                                    <a class="btn btn-small btn-info" href="{{ URL::to('user-profile/' . $profile->id . '/edit') }}" >Edit Profile</a>
                                 </td>
                             </tr>
                         </table>
