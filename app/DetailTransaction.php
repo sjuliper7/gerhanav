@@ -18,4 +18,11 @@ class DetailTransaction extends Model
         return $this->belongsTo('App\Transaction','id_transaction');
     }
 
+    public function requestRefund(){
+        return $this->hasOne('App\RequestRefund','id_detail_transaction');
+    }
+
+    public function refunds(){
+        return $this->hasOne('App\Refund','id_detail_transaction');
+    }
 }

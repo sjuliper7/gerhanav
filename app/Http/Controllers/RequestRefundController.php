@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Refund;
+use App\Product;
+use App\RequestRefund;
 use Illuminate\Http\Request;
 use App\CategoryProduct;
-use Illuminate\Support\Facades\Auth;
+use App\Transaction;
 
-class RefundController extends Controller
+class RequestRefundController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,7 +38,9 @@ class RefundController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $requestRefund = new RequestRefund();
+
+        return redirect('request-refund');
     }
 
     /**
@@ -48,7 +51,9 @@ class RefundController extends Controller
      */
     public function show($id)
     {
-        //
+        $categoryProducts = CategoryProduct::all();
+        $product = Product::find($id);
+        return view('refund.request-refund', compact('categoryProducts' ,'product'));
     }
 
     /**

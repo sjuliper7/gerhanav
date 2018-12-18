@@ -9,4 +9,8 @@ class StatusRefund extends Model
     protected $fillable = [
         'status',
         ];
+
+    public function requestRefund(){
+        return $this->hasOne('App\RequestRefund','id_status_refund');
+    }
 }

@@ -118,20 +118,6 @@ Route::get('get-user','LandingPageController@getUser');
 
 Route::Post('/search','LandingPageController@search');
 
-Route::resource('refund','RefundController');
-
-Route::resource('status-refund','StatusRefundController');
-
-Route::get('refund-admin', 'RefundController@indexAdmin');
-
-Route::get('refund-user', 'RefundController@indexUser');
-
-Route::get('refund-admin/{id}','RefundController@detailRefund');
-
-Route::get('reject-refund/{id}','RefundController@rejectRefund');
-
-Route::POST('create-reject/{id}','RefundController@createReject');
-
 Route::get('/test','RajaOngkirController@getProvinces');
 
 Route::Post('/add-catalog/{id}','CatalogController@save');
@@ -139,3 +125,5 @@ Route::Post('/add-catalog/{id}','CatalogController@save');
 Route::get('/list-catalog','CatalogController@list');
 
 Route::Post('/products/discount/{id}','CatalogController@discount');
+
+Route::resource('request-refund', 'RequestRefundController');

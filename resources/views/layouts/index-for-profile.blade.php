@@ -29,43 +29,6 @@
     <script src="{!! asset('template/plugins/parallax-js-master/parallax.min.js') !!}"></script>
     <script src="{!! asset('template/js/shop_custom.js') !!}"></script>
 
-    <!-- Bootstrap core CSS     -->
-    <link href="{!! asset('admin/css/bootstrap.min.css') !!}" rel="stylesheet" />
-
-    <!-- Animation library for notifications   -->
-    <link href="{!! asset('admin/css/animate.min.css') !!}" rel="stylesheet" />
-
-    <!--  Paper Dashboard core CSS    -->
-    <link href="{!! asset('admin/css/paper-dashboard.css') !!}" rel="stylesheet" />
-
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="{{asset('admin/css/demo.css')}}" rel="stylesheet" />
-
-
-    <!--  Fonts and icons     -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-    <link href="{!! asset('admin/css/themify-icons.css') !!}" rel="stylesheet">
-
-    <!--   Core JS Files   -->
-    <script src="{!! asset('admin/js/jquery.min.js') !!}" type="text/javascript"></script>
-    <script src="{!! asset('admin/js/bootstrap.min.js') !!}" type="text/javascript"></script>
-
-    <!--  Checkbox, Radio & Switch Plugins -->
-    <script src="{!! asset('admin/js/bootstrap-checkbox-radio.js') !!}"></script>
-
-    <!--  Charts Plugin -->
-    <script src="{!! asset('admin/js/chartist.min.js') !!}"></script>
-
-    <!--  Notifications Plugin    -->
-    <script src="{!! asset('admin/js/bootstrap-notify.js') !!}"></script>
-
-    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
-    <script src="{{asset('admin/js/paper-dashboard.js')}}"></script>
-
-    <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-    <script src="{{asset('assets/js/demo.js')}}"></script>
-
 </head>
 
 <body>

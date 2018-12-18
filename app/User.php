@@ -75,4 +75,8 @@ class User extends Authenticatable implements MustVerifyEmail
     public function sendEmailVerificationNotification(){
         $this->notify(new EmailVerification);
     }
+
+    public function requestRefund(){
+        return $this->hasMany('App\RequestRefund','id_user');
+    }
 }

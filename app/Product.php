@@ -39,4 +39,12 @@ class Product extends Model
         return $this->hasMany('App\Review','id_product')->orderBy('created_at','desc')
             ->where(['status' => 1]);
     }
+
+    public function requestRefund(){
+        return $this->hasMany('App\RequestRefund','id_product');
+    }
+
+    public function refunds(){
+        return $this->hasMany('App\Refund','id_product');
+    }
 }

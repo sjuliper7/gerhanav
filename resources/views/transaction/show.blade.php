@@ -22,6 +22,7 @@
                                                     <td class="text-center" style="border-top: none;" width="20%">Jumlah Barang</td>
                                                     <td class="text-center" style="border-top: none;" width="15%">Total Barang</td>
                                                     <td class="text-center" style="border-top: none;" width="25%">Comment</td>
+                                                    <td class="text-center" style="border-top: none;" width="20%">Aksi</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-center" >#{{$detailTransaction->transaction->order_id}}</td>
@@ -34,6 +35,9 @@
                                                     <td class="text-center" >Rp {{number_format($detailTransaction->sub_total_price)}}</td>
                                                     <td class="text-center" >{{$detailTransaction->quantity}}</td>
                                                     <td class="text-center" class="text-danger">{{$detailTransaction->comment}}</td>
+                                                    <td class="text-center">
+                                                        <a href="{{url('request-refund/'.$detailTransaction->product->id)}}" type="button" class="btn btn-success"style="background-color: #8b0000">Kembalikan Barang</a>
+                                                    </td>
                                                 </tr>
                                             </table>
                                         </li>
