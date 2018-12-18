@@ -123,9 +123,15 @@
                             </a>
                         </li>
                         <li style="margin-top: -25px;">
+                            <a href="/request-refund-admin">
+                                <i class="ti-link" style="font-size: 17px"></i>
+                                <p>Request Refund</p>
+                            </a>
+                        </li>
+                        <li style="margin-top: -25px;">
                             <a href="/refund-admin">
                                 <i class="ti-link" style="font-size: 17px"></i>
-                                <p>Manage Refund</p>
+                                <p>Refund</p>
                             </a>
                         </li>
                         <li style="margin-top: -25px;">

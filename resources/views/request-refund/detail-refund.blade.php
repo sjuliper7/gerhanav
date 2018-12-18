@@ -8,7 +8,7 @@
         <div class="row mt-3 ml-1 mb-5">
             <div class="modal-body">
                 <div class="container-fluid">
-                    @if(1 == 0)
+                    @if($requestRefund->statusRefund->status == "Pending")
                         <div class="col-lg-12 d-flex justify-content-center">
                             <div class="text-center" style="width: 30rem">
                                 <p class="card-text">
@@ -17,7 +17,7 @@
                                 </p>
                             </div>
                         </div>
-                    @elseif(1 == 2)
+                    @elseif($requestRefund->statusRefund->status == "Accepted" && is_null($requestRefund->refunds))
                         <div class="col-lg-12 d-flex justify-content-center">
                             <div class="text-center" style="width: 30rem">
                                 <p class="card-text">
@@ -26,7 +26,7 @@
                                 </p>
                             </div>
                         </div>
-                    @elseif(1 == 1)
+                    @elseif($requestRefund->statusRefund->status == "Accepted")
                         <form action="/" method="POST">
                             <div class="row mt-3">
                                 <div class="cart_item_image"><img src="http://127.0.0.1:8000/template/images/cart.png" style="height: 100%;width: 100%" alt=""></div>
@@ -65,10 +65,10 @@
                         <div class="row">
                             <div class="col-md-push-10">
                                 <div class="cart_text">Mohon maaf, pengembalian dana Anda harus kami tolak dikarenakan: </div>
-                                <div class="cart_text">Alasan..... </div>
+                                <div class="cart_text">{{ $requestRefund->konfirmasiRefund->alasan_penolakan }}</div>
                                 <div class="cart_text">Untuk info lebih lanjut, silahkan menghubungi kontak dibawah ini.</div>
-                                <div class="cart_text">No. Hp : 081234567890 </div>
-                                <div class="cart_text">Email : admin@batakzone.com </div>
+                                <div class="cart_text">{{ $requestRefund->konfirmasiRefund->no_hp_yang_dihubungi }}</div>
+                                <div class="cart_text">Email : admin@batakzone.co.id </div>
                             </div>
                         </div>
                     @endif

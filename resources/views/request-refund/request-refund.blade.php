@@ -8,19 +8,17 @@
         <div class="row mt-3 ml-1">
             <div class="modal-body">
                 <div class="container-fluid">
-                    <form action="/request-refund" method="POST">
+                    <form action="{{url('/store-request/'.$detailTransaction->id)}}" method="POST" enctype="multipart/form-data">
                         {{csrf_field()}}
-                        <input type="hidden" name="id_product" class="form-control" placeholder="Status" data-error="Please enter name" required>
-                        <input type="hidden" name="id_transaction" class="form-control" placeholder="Status" data-error="Please enter name" required>
                         <div class="row mt-3">
                             <?php
-                            $images = json_decode($product->images);
+                            $images = json_decode($detailTransaction->product->images);
                             ?>
                             <div class="cart_item_image"><img src="{{ asset('images/'.$images[0]) }}" style="height: 100%;width: 100%" alt=""></div>
                             <div class="col-md-4">
-                                <div class="card-text">{{$product->store->store_name}}</div>
-                                <div class="cart_title">{{$product->name}}</div>
-                                <div class="cart_price">Jumlah: </div>
+                                <div class="card-text">{{$detailTransaction->product->store->store_name}}</div>
+                                <div class="cart_title">{{$detailTransaction->product->name}}</div>
+                                <div class="cart_price">Jumlah: {{$detailTransaction->quantity}}</div>
                             </div>
                             <div class="col-md-4 ml-auto">
                                 <select name="alasan-select" id="alasan" class="form-control">
@@ -46,8 +44,18 @@
 
                         <div class="row mt-5">
                             <div class="col-md-12">
+                                    @if (count($errors) > 0)
+                                        <div class="alert alert-danger">
+                                            {{--<strong>Whoops!</strong>Ada beberapa masalah<br><br>--}}
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    {{ $error }}
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
                                 <label style="margin-left: -2.5em" class="form-check-label" for="exampleCheck1">Unggah Bukti Barang</label>
-                                <input style="margin-left: -1em" type="file" class="form-control-file mt-2" id="exampleFormControlFile1">
+                                <input style="margin-left: -1em" type="file" name="bukti_barang_image" class="form-control-file mt-2" value="Upload Bukti Barang">
                             </div>
                         </div>
 

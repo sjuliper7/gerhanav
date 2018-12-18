@@ -22,7 +22,6 @@ class CreateRequestRefundsTable extends Migration
             $table->string('alasan_pengembalian');
             $table->string('keterangan');
             $table->string('bukti_barang_image');
-            $table->integer('jumlah');
             $table->timestamps();
 
             $table->foreign('id_product')->references('id')->on('products');

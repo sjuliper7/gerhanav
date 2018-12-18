@@ -20,12 +20,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($refund as $refund)
+                            @foreach($requestRefunds as $requestRefund)
                                 <tr>
-                                    <td>{{$refund->id_product}}</td>
-                                    <td>{{$refund->alasan}}</td>
+                                    <td>{{$requestRefund->product->name}}</td>
+                                    <td>{{$requestRefund->alasan_pengembalian}}</td>
                                     <td>
-                                        <a href="{{url('refund-admin/'.$refund->id)}}" class="btn btn-info pull-left" style="margin-right: 3px;">Detail</a>
+                                        <a href="{{url('request-refund-admin-show/'.$requestRefund->id)}}" class="btn btn-info pull-left" style="margin-right: 3px;">Detail</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -39,7 +39,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#brand-title').text("Refund Products")
+            $('#brand-title').text("Request Refund Products")
             $('#product').addClass("active")
         });
     </script>
