@@ -74,7 +74,6 @@
                 </div>
                 <!-- Wishlist -->
                 <div class="col-lg-4 col-9 order-lg-3 order-2 ">
-
                     <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
                         <!-- Cart -->
                         <div class="cart">
