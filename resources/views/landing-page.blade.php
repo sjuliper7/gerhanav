@@ -42,7 +42,7 @@
         <div class="container">
             <div class="row">
                 <!-- Logo -->
-                <div class="col-lg-2 col-sm-3 col-3 order-1">
+                <div class="col-lg-2 col-sm-3 col-md-3 col-3">
                     <div class="logo_container">
                         <div class="logo"><a href="/" style="color: #8b0000">BatakZone</a></div>
                     </div>
@@ -89,7 +89,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="top_bar_user">
                             @if(Auth::guest())
                                 <div class="row">
