@@ -3232,7 +3232,7 @@ select option
 }
 .viewed_price
 {
-	font-size: 16px;
+	font-size: 14px;
 	color: #000000;
 	font-weight: 500;
 }
@@ -3246,7 +3246,7 @@ select option
 	font-size: 12px;
 	font-weight: 400;
 	color: rgba(0,0,0,0.6);
-	margin-left: 8px;
+	margin-left: 4px;
 }
 .viewed_price span::after
 {
