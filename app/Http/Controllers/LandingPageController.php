@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\Auth;
 
 class LandingPageController extends Controller
 {
+
+    public function allProducts(){
+        $products = Product::all();
+        $categoryProducts = CategoryProduct::all();
+
+        return view('all-products',compact('products','categoryProducts'));
+    }
+
     public function index(){
         $categoryProducts = CategoryProduct::all();
         $products = Product::all();
