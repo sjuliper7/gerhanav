@@ -8,7 +8,7 @@ class RequestRefund extends Model
 {
     protected $fillable = [
         'id_user', 'id_product', 'id_detail_transaction', 'id_status_refund', 'alasan_pengembalian',
-        'keterangan', 'bukti_barang_image', 'jumlah',
+        'keterangan', 'bukti_barang_image',
     ];
 
     public function user(){

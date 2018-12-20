@@ -7,16 +7,24 @@
     <div class="content">
         <div class="container-fluid ">
             <div class="row">
-                <form action="{{url('create-reject/')}}" method="post" id="myForm" data-toggle="validator" role="form" enctype="multipart/form-data">
+                <form action="{{url('store-reject-refund/'.$requestRefund->id)}}" method="post" id="myForm" data-toggle="validator" role="form" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-row">
                         <div class="col-md-12">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Nama Produk</label>
-                                    <input type="text" name="name" class="form-control" placeholder="nama" value="Nama" disabled>
+                                    <input type="text" name="name" class="form-control" placeholder="Nama" value="{{ $requestRefund->product->name }}" disabled>
                                 </div>
                             </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Nomor yang Dapat Dihubungi</label>
+                                    <input type="text" name="nomor" class="form-control" placeholder="Nomor Telepon" required>
+                                </div>
+                            </div>
+
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label>Alasan Penolakan Refund</label>
@@ -39,7 +47,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#brand-title').text("Refund Products")
+            $('#brand-title').text("Request Refund Products")
             $('#product').addClass("active")
         });
     </script>

@@ -156,7 +156,7 @@
                                                                 </div>
                                                             </a>
 
-                                                            <a href="/refund-user">
+                                                            <a href="/request-refund">
                                                                 <div class="col-md-12">
                                                                     <div class="row">
                                                                         <img src="{{asset('images/box_closed.png')}}"

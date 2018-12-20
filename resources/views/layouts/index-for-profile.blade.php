@@ -29,6 +29,17 @@
     <script src="{!! asset('template/plugins/parallax-js-master/parallax.min.js') !!}"></script>
     <script src="{!! asset('template/js/shop_custom.js') !!}"></script>
 
+    <!-- Bootstrap core CSS     -->
+    <link href="{!! asset('admin/css/bootstrap.min.css') !!}" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="{!! asset('admin/css/animate.min.css') !!}" rel="stylesheet" />
+
+    <!--  Paper Dashboard core CSS    -->
+    <link href="{!! asset('admin/css/paper-dashboard.css') !!}" rel="stylesheet" />
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="{{asset('admin/css/demo.css')}}" rel="stylesheet" />
 </head>
 
 <body>
@@ -147,7 +158,7 @@
                                                                 </div>
                                                             </a>
 
-                                                            <a href="/refund-user">
+                                                            <a href="/request-refund">
                                                                 <div class="col-md-12">
                                                                     <div class="row">
                                                                         <img src="{{asset('images/box_closed.png')}}"

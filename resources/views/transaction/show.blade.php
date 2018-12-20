@@ -36,7 +36,7 @@
                                                     <td class="text-center" >{{$detailTransaction->quantity}}</td>
                                                     <td class="text-center" class="text-danger">{{$detailTransaction->comment}}</td>
                                                     <td class="text-center">
-                                                        <a href="{{url('request-refund/'.$detailTransaction->product->id)}}" type="button" class="btn btn-success"style="background-color: #8b0000">Kembalikan Barang</a>
+                                                        <a href="{{url('request-refund/'.$detailTransaction->id)}}" type="button" class="btn btn-success"style="background-color: #8b0000">Kembalikan Barang</a>
                                                     </td>
                                                 </tr>
                                             </table>
