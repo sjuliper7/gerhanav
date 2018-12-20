@@ -13,8 +13,7 @@ class LandingPageController extends Controller
 {
     public function index(){
         $categoryProducts = CategoryProduct::all();
-        $products = Product::all();
-
+        $products = Product::select('name')->get();
         $catalogs = Catalog::where(['is_active' => 1])->get();
         $productsView = Product::where('viewed', '!=' , 0)->get();
 
@@ -39,6 +38,10 @@ class LandingPageController extends Controller
         for($i=0; $i<$max;$i++){
             array_push($mostProductView, $productsView[$i]);
         }
+
+
+        $products = $products->pluck('name')->toArray();
+        $products = json_encode($products);
 
         return view('landing-page',compact('categoryProducts', 'products','mostProductView','catalogs','lastPrice'));
     }
@@ -95,7 +98,6 @@ class LandingPageController extends Controller
         return view('detail-product',compact('product','images','reviews','desc','story','categoryProducts','check'));
     }
 
-
     public function searchByName($name){
         $categoryProducts = CategoryProduct::all();
         $store = Store::where(['store_name' => $name])->firstOrFail();
@@ -115,5 +117,9 @@ class LandingPageController extends Controller
 
     public function getUser(){
         return Auth::user()->id;
+    }
+
+    public function search(Request $request){
+
     }
 }
