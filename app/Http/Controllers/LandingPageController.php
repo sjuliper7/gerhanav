@@ -120,6 +120,6 @@ class LandingPageController extends Controller
     }
 
     public function search(Request $request){
-
+        dd($request['product'], $request['category']);
     }
 }

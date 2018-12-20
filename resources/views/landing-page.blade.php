@@ -51,8 +51,9 @@
                     <div class="header_search">
                         <div class="header_search_content">
                             <div class="header_search_form_container">
-                                <form action="#" class="header_search_form clearfix">
-                                    <input type="search" required="required" id="myInput" class="header_search_input" placeholder="Cari Produk">
+                                <form action="{{url('search')}}" class="header_search_form clearfix" method="POST">
+                                    {{csrf_field()}}
+                                    <input type="search" required="required" id="myInput" class="header_search_input" name="product" placeholder="Cari Produk">
                                     <input type="text" name="category" id="input_category" hidden>
                                     <div class="custom_dropdown">
                                         <div class="custom_dropdown_list">
@@ -60,7 +61,7 @@
                                             <i class="fas deals_featuredfa-chevron-down"></i>
                                             <ul class="custom_list clc">
                                                 @foreach($categoryProducts as $categoryProduct)
-                                                    <li><a class="clc" href="{{url('/products-by/'.$categoryProduct->name)}}">{{$categoryProduct->name}}</a></li>
+                                                    <li><a class="clc" href="{{url('/products-by/'.$categoryProduct->name)}}" onclick="f({{$categoryProduct->id}})">{{$categoryProduct->name}}</a></li>
                                                 @endforeach
                                             </ul>
                                         </div>
@@ -302,6 +303,10 @@
                 });
             }
         });
+
+        function f(la) {
+            $('#input_category').val(la);
+        }
 
         function autocomplete(inp, arr) {
             /*the autocomplete function takes two arguments,
