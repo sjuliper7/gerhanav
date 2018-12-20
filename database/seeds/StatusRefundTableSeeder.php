@@ -28,5 +28,11 @@ class StatusRefundTableSeeder extends Seeder
                 'status' => "Pending",
             ]
         );
+
+        DB::table('status_refunds')->insert(
+            [
+                'status' => "Completed",
+            ]
+        );
     }
 }

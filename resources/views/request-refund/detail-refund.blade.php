@@ -18,37 +18,46 @@
                             </div>
                         </div>
                     @elseif($requestRefund->statusRefund->status == "Accepted" && is_null($requestRefund->refunds))
-                        <div class="col-lg-12 d-flex justify-content-center">
-                            <div class="text-center" style="width: 30rem">
-                                <p class="card-text">
-                                    Terima Kasih. Pengembalian dana Anda sedang proses.
-                                    Mohon untuk menunggu.
-                                </p>
-                            </div>
-                        </div>
-                    @elseif($requestRefund->statusRefund->status == "Accepted")
-                        <form action="/" method="POST">
+                        <form action="{{url('store-refund/'.$requestRefund->id)}}" method="POST">
+                            {{csrf_field()}}
+                            <?php
+                            $images = json_decode($requestRefund->product->images);
+                            ?>
                             <div class="row mt-3">
-                                <div class="cart_item_image"><img src="http://127.0.0.1:8000/template/images/cart.png" style="height: 100%;width: 100%" alt=""></div>
+                                <div class="cart_item_image"><img src="{{ asset('images/'.$images[0]) }}" style="height: 100%;width: 100%" alt=""></div>
                                 <div class="col-md-4">
-                                    <div class="card-text">Nama Toko</div>
-                                    <div class="cart_title">Nama Toko</div>
-                                    <div class="cart_price">Jumlah: 1</div>
+                                    <div class="card-text">{{ $requestRefund->product->store->store_name }}</div>
+                                    <div class="cart_title">{{ $requestRefund->product->name }}</div>
+                                    <div class="cart_price">{{ $requestRefund->detailTransaction->quantity }}</div>
                                 </div>
                             </div>
 
+                                <div class="row mt-5">
+                                    <div class="col-md-6" style="margin-left: -1em">
+                                        <div class="cart_text">Atas Nama</div>
+                                        <div class="cart_price">Isi dengan nama yang tertera di buku tabungan anda.</div>
+                                        <input type="text" name="name" class="form-control mt-2" placeholder="Isi Atas Nama" data-error="Mohon isi nomor rekening anda" required>
+                                    </div>
+                                    <div class="col-md-6 ml-auto">
+                                        <div class="cart_text">Nama Bank</div>
+                                        <div class="cart_price">Isi dengan nama bank anda.</div>
+                                        <input type="text" name="bank" class="form-control mt-2" placeholder="Isi Nama Bank" data-error="Mohon isi nomor rekening anda" required>
+                                    </div>
+                                </div>
+
                             <div class="row mt-5">
                                 <div class="col-md-6" style="margin-left: -1em">
-                                    <div class="cart_text">Pilih Metode Pengiriman</div>
-                                    <div class="cart_price">Serahkan barang yang ingin dikembalikan ke kantor mitra pengiriman.</div>
-                                    <select style="margin-left: 0em" name="province-select" id="province" class="form-control mt-2" onclick="getCites()">
-                                        <option selected="selected" name="category-selected">Pilih Kurir Pengiriman</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6 ml-auto">
                                     <div class="cart_text">Nomor Rekening Tujuan</div>
                                     <div class="cart_price">Isi dengan nomor rekening kemana kami akan mengirimkan pengembalian dana.</div>
-                                    <input type="text" name="" class="form-control mt-2" placeholder="Isi Nomor Rekening Anda" data-error="Mohon isi nomor rekening anda" required>
+                                    <input type="text" name="no-rek" class="form-control mt-2" placeholder="Isi Nomor Rekening Anda" data-error="Mohon isi nomor rekening anda" required>
+                                </div>
+                                <div class="col-md-6 ml-auto">
+                                    <div class="cart_text">Pilih Metode Pengiriman</div>
+                                    <div class="cart_price">Serahkan barang yang ingin dikembalikan ke kantor mitra pengiriman.</div>
+                                    <select style="margin-left: 0em" name="kurir-select" id="province" class="form-control mt-2">
+                                        <option value="" selected="selected" name="category-selected">Pilih Kurir Pengiriman</option>
+                                        <option value="JNE">JNE</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -61,6 +70,15 @@
                                 <button type="submit" class="btn ml-auto col-2" style="background-color: darkred; color: white">Kirim</button>
                             </div>
                         </form>
+                    @elseif($requestRefund->statusRefund->status == "Accepted")
+                        <div class="col-lg-12 d-flex justify-content-center">
+                            <div class="text-center" style="width: 30rem">
+                                <p class="card-text">
+                                    Terima Kasih. Pengembalian dana Anda sedang proses.
+                                    Mohon untuk menunggu.
+                                </p>
+                            </div>
+                        </div>
                     @else
                         <div class="row">
                             <div class="col-md-push-10">

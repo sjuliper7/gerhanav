@@ -141,3 +141,11 @@ Route::Post('accept-request-refund/{id}', 'RequestRefundController@acceptRequest
 Route::get('reject-request-refund/{id}', 'RequestRefundController@rejectRequest');
 
 Route::Post('store-reject-refund/{id}', 'RequestRefundController@storeReject');
+
+Route::resource('status-refund', 'StatusRefundController');
+
+Route::resource('refund', 'RefundController');
+
+Route::Post('store-refund/{id}', 'RefundController@storeRefund');
+
+Route::Post('complete-refund/{id}', 'RefundController@updateRefund');

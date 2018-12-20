@@ -35,9 +35,17 @@
                                                     <td class="text-center" >Rp {{number_format($detailTransaction->sub_total_price)}}</td>
                                                     <td class="text-center" >{{$detailTransaction->quantity}}</td>
                                                     <td class="text-center" class="text-danger">{{$detailTransaction->comment}}</td>
-                                                    <td class="text-center">
-                                                        <a href="{{url('request-refund/'.$detailTransaction->id)}}" type="button" class="btn btn-success"style="background-color: #8b0000">Kembalikan Barang</a>
-                                                    </td>
+                                                    @if(is_null($detailTransaction->requestRefund))
+                                                        <td class="text-center">
+                                                            <a href="{{url('request-refund/'.$detailTransaction->id)}}" type="button" class="btn btn-success"style="background-color: #8b0000">Kembalikan Barang</a>
+                                                        </td>
+                                                    @elseif($detailTransaction->requestRefund->statusRefund->status == "Rejected")
+                                                        <td class="text-center">
+                                                            <a href="{{url('request-refund/'.$detailTransaction->id)}}" type="button" class="btn btn-success"style="background-color: #8b0000">Kembalikan Barang</a>
+                                                        </td>
+                                                    @else
+                                                        <td>Pengembalian Barang</td>
+                                                    @endif
                                                 </tr>
                                             </table>
                                         </li>
