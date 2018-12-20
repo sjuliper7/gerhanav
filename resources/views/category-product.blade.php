@@ -52,9 +52,23 @@
                                             <img src="{{ asset('images/'.$images[0]) }}" style="width:120px;height:120px; object-fit: cover;"  >
                                         </div>
                                         <div class="product_content">
-                                            <div class="product_price">Rp {{number_format($product->price)}}</div>
-                                            <div class="product_name"><div><a href="product.html" tabindex="0">{{$product->name}}</a></div></div>
+                                            @if($product->discount !=0)
+                                                <div class="product_price">Rp.{{$product->price-($product->price*$product->discount/100)}}<span>Rp.{{$product->price}}</span></div>
+                                                <div class="product_name"><div><a href="{{ URL::to('buy/' . $product->name ) }}" tabindex="0">{{$product->name}}</a></div></div>
+                                            @else
+                                                <div class="product_content">
+                                                    <div class="product_price">{{$product->price}}</div>
+                                                    <div class="product_name"><div><a href="{{ URL::to('buy/' . $product->name ) }}" tabindex="0">{{$product->name}}</a></div></div>
+                                                </div>
+                                            @endif
                                         </div>
+
+                                        <ul class="product_marks">
+                                            @if($product->discount!=0)
+                                                <li class="product_mark product_discount">{{$product->discount}}%</li>
+                                                <li class="product_mark product_new">new</li>
+                                            @endif
+                                        </ul>
                                     </div>
                                 </a>
                             @endforeach
