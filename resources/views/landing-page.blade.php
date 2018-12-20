@@ -489,7 +489,7 @@
                         <div class="card-header" style="background-color: white; border: none; padding: 0px;">
                             <h3 class="viewed_title">Produk Terbaru</h3>
                             <div style="float: right;margin-top: -1.5em">
-                                <a href="/prducts"><h7>Lihat Selengkapnya</h7></a>
+                                <a href="/all-products"><h7>Lihat Selengkapnya</h7></a>
                             </div>
                             <div class="tabs_line"><span style="background-color: #8b0000"></span></div>
                         </div>
