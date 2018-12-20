@@ -19,7 +19,10 @@
                                                     <td class="text-center" style="border-top: none;" width="15%">Total Harga</td>
                                                     <td class="text-center" style="border-top: none;" width="25%">Alasan Pengembalian</td>
                                                     <td class="text-center" style="border-top: none;" width="15%">Status</td>
-                                                    <td class="text-center" style="border-top: none;" width="20%">Aksi</td>
+                                                    @if($requestRefund->statusRefund->status != "Completed")
+                                                        <td class="text-center" style="border-top: none;" width="20%">Aksi</td>
+                                                    @else
+                                                    @endif
                                                 </tr>
                                                 <tr>
                                                     <td class="text-center">
@@ -30,9 +33,12 @@
                                                     <td class="text-center">{{$requestRefund->detailTransaction->sub_total_price}}</td>
                                                     <td class="text-center">{{$requestRefund->alasan_pengembalian}}</td>
                                                     <td class="text-center">{{$requestRefund->statusRefund->status}}</td>
-                                                    <td class="text-center">
-                                                        <a href="{{url('/detail-request-refund/'.$requestRefund->id)}}" type="button" class="btn btn-success"style="background-color: #8b0000">Lihat</a>
-                                                    </td>
+                                                    @if($requestRefund->statusRefund->status != "Completed")
+                                                        <td class="text-center">
+                                                            <a href="{{url('/detail-request-refund/'.$requestRefund->id)}}" type="button" class="btn btn-success"style="background-color: #8b0000">Lihat</a>
+                                                        </td>
+                                                    @else
+                                                    @endif
                                                 </tr>
                                             </table>
                                         </div>
