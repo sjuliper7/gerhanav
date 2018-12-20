@@ -149,3 +149,5 @@ Route::resource('refund', 'RefundController');
 Route::Post('store-refund/{id}', 'RefundController@storeRefund');
 
 Route::Post('complete-refund/{id}', 'RefundController@updateRefund');
+
+Route::get('/all-products','LandingPageController@allProducts');
