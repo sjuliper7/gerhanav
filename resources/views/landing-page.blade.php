@@ -495,7 +495,7 @@
                         <div class="card-header" style="background-color: white; border: none; padding: 0px;">
                             <h3 class="viewed_title">Produk Terbaru</h3>
                             <div style="float: right;margin-top: -1.5em">
-                                <a href="/prducts"><h7>Lihat Selengkapnya</h7></a>
+                                <a href="/all-products"><h7>Lihat Selengkapnya</h7></a>
                             </div>
                             <div class="tabs_line"><span style="background-color: #8b0000"></span></div>
                         </div>
@@ -511,9 +511,9 @@
                                                 $images = json_decode($catalog->product->images);
                                                 ?>
                                                 <div class="viewed_image">
-                                                    <a href="{{ URL::to('buy/' . $catalog->product->name ) }}">
-                                                        <img src="{{ asset('images/'.$images[0])  }}" >
-                                                    </a>
+                                                    <div class="product_image d-flex flex-column align-items-center justify-content-center">
+                                                        <img src="{{ asset('images/'.$images[0]) }}" style="width:120px;height:120px; object-fit: cover;"  >
+                                                    </div>
                                                 </div>
 
                                                     <div class="viewed_content text-center">
@@ -569,11 +569,11 @@
                                                 $images = json_decode($mv->images);
                                             ?>
 
-                                            <div class="viewed_image">
-                                                <a href="{{ URL::to('buy/' . $mv->name ) }}">
-                                                    <img src="{{ asset('images/'.$images[0])  }}" >
-                                                </a>
-                                            </div>
+                                                <div class="viewed_image">
+                                                    <div class="product_image d-flex flex-column align-items-center justify-content-center">
+                                                        <img src="{{ asset('images/'.$images[0]) }}" style="width:120px;height:120px; object-fit: cover;"  >
+                                                    </div>
+                                                </div>
 
                                                 <div class="viewed_content text-center">
                                                     @if($mv->discount !=0)
