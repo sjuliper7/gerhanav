@@ -16,7 +16,7 @@ class PermissionsTableSeeder extends Seeder
 
         DB::table('permissions')->insert(
             [
-                'name' => "Administer roles & permissions",
+                'name' => "Administer Roles",
                 'guard_name' => "web",
                 'created_at' => Carbon::now(),
             ]
@@ -24,7 +24,7 @@ class PermissionsTableSeeder extends Seeder
 
         DB::table('permissions')->insert(
             [
-                'name' => "Access Store",
+                'name' => "Administer Permissions",
                 'guard_name' => "web",
                 'created_at' => Carbon::now(),
             ]
@@ -32,7 +32,47 @@ class PermissionsTableSeeder extends Seeder
 
         DB::table('permissions')->insert(
             [
-                'name' => "My Store",
+                'name' => "Administer Products",
+                'guard_name' => "web",
+                'created_at' => Carbon::now(),
+            ]
+        );
+
+        DB::table('permissions')->insert(
+            [
+                'name' => "Administer Product Category",
+                'guard_name' => "web",
+                'created_at' => Carbon::now(),
+            ]
+        );
+
+        DB::table('permissions')->insert(
+            [
+                'name' => "Administer Product Status",
+                'guard_name' => "web",
+                'created_at' => Carbon::now(),
+            ]
+        );
+
+        DB::table('permissions')->insert(
+            [
+                'name' => "Administer Product Catalog",
+                'guard_name' => "web",
+                'created_at' => Carbon::now(),
+            ]
+        );
+
+        DB::table('permissions')->insert(
+            [
+                'name' => "Administer Refund Status",
+                'guard_name' => "web",
+                'created_at' => Carbon::now(),
+            ]
+        );
+
+        DB::table('permissions')->insert(
+            [
+                'name' => "Administer Bank Reference",
                 'guard_name' => "web",
                 'created_at' => Carbon::now(),
             ]
