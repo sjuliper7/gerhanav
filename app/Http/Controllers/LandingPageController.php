@@ -120,6 +120,15 @@ class LandingPageController extends Controller
     }
 
     public function search(Request $request){
-        dd($request['product'], $request['category']);
+        if($request['category'] === null){
+            $products = Product::where('name' ,'LIKE','%'.$request['name'].'%')->get();
+        }else{
+            $products = Product::where('name' ,'LIKE','%'.$request['name'].'%')
+                ->orWhere(['id_category' => $request['category']])
+                ->get();
+        }
+
+        $categoryProducts = CategoryProduct::all();
+        return view('search',compact('products','categoryProducts'));
     }
 }
