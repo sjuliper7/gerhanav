@@ -18,18 +18,20 @@ class TransactionController extends Controller
 
     public function index()
     {
+        $products = Product::all();
         $categoryProducts = CategoryProduct::all();
         $user = Auth::user();
         $transactions = $user->transactions;
-        return view('transaction.index', compact('transactions','categoryProducts'));
+        return view('transaction.index', compact('transactions','categoryProducts','products'));
     }
 
     public function payment($order_id)
     {
+        $products = Product::all();
         $categoryProducts = CategoryProduct::all();
         $transaction = Transaction::where(['order_id' => $order_id])->firstOrFail();
         $refBanks = RefBank::all();
-        return view('transaction.confirm-payment',compact('transaction', 'refBanks','categoryProducts'));
+        return view('transaction.confirm-payment',compact('transaction', 'refBanks','categoryProducts','products'));
     }
 
     public function updatePayment(Request $request, $id){
