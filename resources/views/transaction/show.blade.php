@@ -22,6 +22,7 @@
                                                     <td class="text-center" style="border-top: none;" width="20%">Jumlah Barang</td>
                                                     <td class="text-center" style="border-top: none;" width="15%">Total Barang</td>
                                                     <td class="text-center" style="border-top: none;" width="25%">Comment</td>
+                                                    <td class="text-center" style="border-top: none;" width="20%">Aksi</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-center" >#{{$detailTransaction->transaction->order_id}}</td>
@@ -34,6 +35,17 @@
                                                     <td class="text-center" >Rp {{number_format($detailTransaction->sub_total_price)}}</td>
                                                     <td class="text-center" >{{$detailTransaction->quantity}}</td>
                                                     <td class="text-center" class="text-danger">{{$detailTransaction->comment}}</td>
+                                                    @if(is_null($detailTransaction->requestRefund))
+                                                        <td class="text-center">
+                                                            <a href="{{url('request-refund/'.$detailTransaction->id)}}" type="button" class="btn btn-success"style="background-color: #8b0000">Kembalikan Barang</a>
+                                                        </td>
+                                                    @elseif($detailTransaction->requestRefund->statusRefund->status == "Rejected")
+                                                        <td class="text-center">
+                                                            <a href="{{url('request-refund/'.$detailTransaction->id)}}" type="button" class="btn btn-success"style="background-color: #8b0000">Kembalikan Barang</a>
+                                                        </td>
+                                                    @else
+                                                        <td>Pengembalian Barang</td>
+                                                    @endif
                                                 </tr>
                                             </table>
                                         </li>
@@ -41,7 +53,7 @@
                                 </div>
                             {{--</a>--}}
                         @endforeach
-                            @if($detailTransaction->transaction->status == "Menunggu Verifikasi" || $detailTransaction->transaction->status == "Menunggu Pembayaran")
+                            @if($detailTransaction->transaction->status->name === "Menunggu Verifikasi" || $detailTransaction->transaction->status->name === "Menunggu Pembayaran")
                                 <div class="cart_buttons">
                                     {{--<a href="/" button type="button" class="btn btn-danger"style="background-color: #FFFFFF;color: #000000">Batal</a>--}}
                                     <a href="{{url('upload-payment/'.$detailTransaction->transaction->order_id)}}" type="button" class="btn btn-success"style="background-color: #8b0000">Bayar</a>

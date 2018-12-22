@@ -92,11 +92,16 @@
 
                             <div class="top_bar_user">
                                 @if(Auth::guest())
-                                    <div style="margin-right: 2em">
-                                        <a type="text" href="/login" class="" style="color: #8b0000"> Masuk</a>
-                                    </div>
-                                    <div>
-                                        <a type="text" href="/register" class="">Daftar </a>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-12">
+                                            <div class="col-6 col-lg-6 col-sm-6 col-md-6">
+                                                <a type="text" href="/login" class="" style="color: #8b0000;"> Masuk</a>
+                                            </div>
+                                            <div hidden>asd</div>
+                                            <div class="col-5 col-lg-5 col-sm-5 col-md-5">
+                                                <a type="text" href="/register" class="">Daftar </a>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 @else
@@ -113,18 +118,21 @@
                                             <li>
                                                 <div class="container">
                                                     <div class="row">
+
                                                         <div class="col-md-12">
-                                                            <div class="col-md-12" style="margin-bottom: -5em">
-                                                                <div class="row">
-                                                                    <img src="{{asset('images/kelola_akun.png')}}"
-                                                                         style="max-width:10%;max-height: 10%">
-                                                                    <div class="text-left col-md-6">
-                                                                        <p class="font-weight-normal">Kelola Akun</p>
+                                                            <a href="/user-profile">
+                                                                <div class="col-md-12" style="margin-bottom: -5em">
+                                                                    <div class="row">
+                                                                        <img src="{{asset('images/kelola_akun.png')}}"
+                                                                             style="max-width:10%;max-height: 10%">
+                                                                        <div class="text-left col-md-6">
+                                                                            <p class="font-weight-normal">Kelola Akun</p>
+                                                                        </div>
+
                                                                     </div>
 
                                                                 </div>
-
-                                                            </div>
+                                                            </a>
 
                                                             <a href="/transactions">
                                                                 <div class="col-md-12">
@@ -134,6 +142,18 @@
                                                                         <div class="col-md-6">
                                                                             <p class="font-weight-normal">Pesanan
                                                                                 Saya</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+
+                                                            <a href="/request-refund">
+                                                                <div class="col-md-12">
+                                                                    <div class="row">
+                                                                        <img src="{{asset('images/box_closed.png')}}"
+                                                                             style="max-width:10%;max-height: 10%">
+                                                                        <div class="col-md-6">
+                                                                            <p class="font-weight-normal">Pengembalian</p>
                                                                         </div>
 
                                                                     </div>
@@ -363,28 +383,6 @@
 
 <!-- Newsletter -->
 
-    <div class="newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
-                        <div class="newsletter_title_container">
-                            <div class="newsletter_icon"><img src="{{asset('/template/images/send.png')}}" alt=""></div>
-                            <div class="newsletter_title">Sign up for Newsletter</div>
-                            <div class="newsletter_text"><p>...and receive %20 coupon for first shopping.</p></div>
-                        </div>
-                        <div class="newsletter_content clearfix">
-                            <form action="#" class="newsletter_form">
-                                <input type="email" class="newsletter_input" required="required" placeholder="Enter your email address">
-                                <button class="newsletter_button">Berlangganan</button>
-                            </form>
-                            {{--<div class="newsletter_unsubscribe_link"><a href="#">unsubscribe</a></div>--}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
 

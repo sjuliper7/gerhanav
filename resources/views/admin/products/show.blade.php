@@ -28,6 +28,8 @@
                     <h1>{{ $product->name}}</h1>
                     <hr>
                     <p class="lead text-danger">Harga : Rp {{ number_format($product->price,2) }} </p>
+                    <p class="lead text-danger">Discount : {{ number_format($product->discount) }}% </p>
+                    <p class="lead text-danger">Harga Akhir: Rp {{ number_format($lastPrice,2) }} </p>
                     <p class="lead text-success">Stok : {{ $product->stock }} pcs</p>
                     <p class="lead text-success">Kategori  : {{ $product->category->name}} </p>
                     <p class="lead text-success">Status  : {{ $product->status->name}} </p>
@@ -51,8 +53,6 @@
                     {{--@endcan--}}
                     {!! Form::close() !!}
                 </div>
-
-
             </div>
         </div>
     </div>

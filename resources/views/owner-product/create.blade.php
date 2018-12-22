@@ -5,11 +5,11 @@
 @section('content')
     {{--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>--}}
     {{--<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.js"></script>--}}
-    <script src="{{asset('https://code.jquery.com/jquery-3.2.1.slim.min.js')}}"></script>
-    <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js')}}"></script>
-    <script src="{{asset('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js')}}"></script>
-    <link href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css')}}" rel="stylesheet">
-    <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js')}}"></script>
+    {{--<script src="{{asset('https://code.jquery.com/jquery-3.2.1.slim.min.js')}}"></script>--}}
+    {{--<script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js')}}"></script>--}}
+    {{--<script src="{{asset('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js')}}"></script>--}}
+    {{--<link href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css')}}" rel="stylesheet">--}}
+    {{--<script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js')}}"></script>--}}
 
     <div class="container py-3">
         <div class="container">
@@ -17,95 +17,116 @@
             <hr>
             <form action="/owner-products" method="post" id="myForm" data-toggle="validator" role="form" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <div class="form-row">
-                     <div class="col-md-6">
-                         <div class="form-row">
-                             <div class="form-group col-md-12">
-                                 <label>nama</label>
-                                 <input type="text" name="name" class="form-control" placeholder="nama" data-error="Mohon isi nama produk" required>
-                                 <div class="help-block with-errors"></div>
-                             </div>
-                         </div>
-                         <div class="form-row">
-                             <div class="form-group col-md-4">
-                                 <label>Harga</label>
-                                 <input type="text" name="price" class="form-control" placeholder="harga" data-error="Mohon isi harga produk" required>
-                                 <div class="help-block with-errors"></div>
-                             </div>
-                             <div class="form-group col-md-4">
-                                 <label>Stok</label>
-                                 <input type="text" name="stock" class="form-control" placeholder="stok" data-error="Mohon isi stok produk" required>
-                                 <div class="help-block with-errors"></div>
-                             </div>
-                             <div class="form-group col-md-4">
-                                 <label>Berat</label>
-                                 <input type="text" name="weight" class="form-control" placeholder="Berat" data-error="Mohon isi berat produk" required>
-                                 <div class="help-block with-errors"></div>
-                             </div>
-                         </div>
-                         <div class="form-row">
-                             <div class="form-group col-md-5">
-                                 <label>Kategori Produk</label>
-                                 <select name="category-select" id="select-category" class="form-control" style="width: 100%" required>
-                                     <option selected="selected" name="category-selected" value="">Pilih Kategori</option>
-                                     @foreach($categoryProducts as $categoryProduct)
-                                         <option value="{{$categoryProduct->id}}">{{$categoryProduct->name}}</option>
-                                     @endforeach
-                                 </select>
+                <div class="row">
+                    @if (count($errors) == 1)
+                        <div class="alert alert-danger">
+                            @foreach ($errors->all() as $error)
+                                <p style="font-size: 11px" class="text-center">{{ $error }}</p>
+                            @endforeach
+                        </div>
 
-                             </div>
+                    @elseif(count($errors) > 1)
+                        <div class="alert alert-danger">
+                            @foreach ($errors->all() as $error)
+                                <ul>
+                                    <li style="font-size: 11px">{{ $error }}</li>
+                                </ul>
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+                <div class="row">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label>nama</label>
+                                    <input type="text" name="name" class="form-control" placeholder="nama" data-error="Mohon isi nama produk" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label>Harga</label>
+                                    <input type="text" name="price" class="form-control" placeholder="harga" data-error="Mohon isi harga produk" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Stok</label>
+                                    <input type="text" name="stock" class="form-control" placeholder="stok" data-error="Mohon isi stok produk" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Berat</label>
+                                    <input type="text" name="weight" class="form-control" placeholder="Berat" data-error="Mohon isi berat produk" required>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-5">
+                                    <label>Kategori Produk</label>
+                                    <select name="category-select" id="select-category" class="form-control" style="width: 100%" required>
+                                        <option selected="selected" name="category-selected" value="">Pilih Kategori</option>
+                                        @foreach($categoryProducts as $categoryProduct)
+                                            <option value="{{$categoryProduct->id}}">{{$categoryProduct->name}}</option>
+                                        @endforeach
+                                    </select>
 
-                             <div class="form-group col-md-6">
-                                 <label>Status Produk</label>
-                                 <select name="status-select" id="select-status" class="form-control" style="width: auto" required>
-                                     <option selected="selected" name="status-selected" value="">Pilih Status</option>
-                                     @foreach($statusProducts as $statusProduct)
-                                         <option value="{{$statusProduct->id}}">{{$statusProduct->name}}</option>
-                                     @endforeach
-                                 </select>
-                             </div>
+                                </div>
 
-                         </div>
-                         <div class="form-row">
-                             <div class="form-group col-md-12">
-                                 <label>Deskripsi</label>
-                                 <textarea name="description" id="summernote" class="form-control" rows="4" placeholder="Deskripsi" required></textarea>
-                             </div>
-                         </div>
-                         <div class="form-row">
-                             <div class="form-group col-md-12">
-                                 <label for="comment">Cerita:</label>
-                                 <textarea class="form-control" rows="5" id="story" name="story" placeholder="Cerita" required></textarea>
-                             </div>
-                         </div>
+                                <div class="form-group col-md-6">
+                                    <label>Status Produk</label>
+                                    <select name="status-select" id="select-status" class="form-control" style="width: auto" required>
+                                        <option selected="selected" name="status-selected" value="">Pilih Status</option>
+                                        @foreach($statusProducts as $statusProduct)
+                                            <option value="{{$statusProduct->id}}">{{$statusProduct->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label>Deskripsi</label>
+                                    <textarea name="description" id="summernote" class="form-control" rows="4" placeholder="Deskripsi" required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="comment">Cerita:</label>
+                                    <textarea class="form-control" rows="5" id="story" name="story" placeholder="Cerita" required></textarea>
+                                </div>
+                            </div>
 
-                         <div style="float: right;margin-bottom: 20px">
-                             <input type="button" id="cancel" value="Batal" class="btn btn-danger " style="margin-top: 10px;">
-                             <input type="submit" id="add"value="Tambah Produk" class="btn btn-info" style="margin-top: 10px;">
-                         </div>
+                        </div>
 
-                     </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>gambar</label>
-                            <table class="table" id="dynamic_field">
-                                <tr>
-                                    <td>
-                                        <div class="form-group">
-                                            <img src="{{asset('http://placehold.it/400x400')}}" id="show_image-" style="max-width:100px;max-height:100px;" class="center-block"  />
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <label class="btn btn-info"style=" background-color:#8b0000" >Jelajah<input type="file" id="input_image-" name="images[]" style="display: none" onchange="loadImage(this)"></label>
-                                    </td>
-                                    <td><button type="button" name="addImages" id="more" class="btn btn-success"style=" background-color:#8b0000" required>Tambah Foto</button></td>
-                                </tr>
-                            </table>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>gambar</label>
+                                <table class="table" id="dynamic_field">
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <img src="{{asset('http://placehold.it/400x400')}}" id="show_image-" style="max-width:100px;max-height:100px;" class="center-block"  />
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <label class="btn btn-info"style=" background-color:#8b0000" >Jelajah<input type="file" id="input_image-" name="images[]" style="display: none" onchange="loadImage(this)"></label>
+                                        </td>
+                                        <td><button type="button" name="addImages" id="more" class="btn btn-success"style=" background-color:#8b0000" required>Tambah Foto</button></td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div style="float: right;margin-bottom: 20px">
+                        <input type="button" id="cancel" value="Batal" class="btn btn-danger " style="margin-top: 10px;">
+                        <input type="submit" id="add"value="Tambah Produk" class="btn btn-info" style="margin-top: 10px;">
+                    </div>
+                </div>
+
             </form>
 
         </div>

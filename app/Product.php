@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'name', 'price', 'stock', 'description','story','images',
+        'name', 'price', 'stock', 'description','story','images','discount',
         'weight','id_status','id_category','id_store'
     ];
 
@@ -31,8 +31,20 @@ class Product extends Model
         return $this->hasOne('App\DetailTransaction','id_product');
     }
 
+    public function catalog(){
+        return $this->hasOne('App\Catalog','id_product');
+    }
+
     public function reviews(){
         return $this->hasMany('App\Review','id_product')->orderBy('created_at','desc')
             ->where(['status' => 1]);
+    }
+
+    public function requestRefund(){
+        return $this->hasMany('App\RequestRefund','id_product');
+    }
+
+    public function refunds(){
+        return $this->hasMany('App\Refund','id_product');
     }
 }

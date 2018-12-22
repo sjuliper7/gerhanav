@@ -3217,8 +3217,9 @@ select option
 }
 .viewed_image
 {
-	width: 115px;
-	height: 115px;
+	width: 150px;
+	height: 150px;
+    object-fit:scale-down;
 }
 .viewed_image img
 {
@@ -3228,11 +3229,10 @@ select option
 .viewed_content
 {
 	width: 100%;
-	margin-top: 25px;
 }
 .viewed_price
 {
-	font-size: 16px;
+	font-size: 14px;
 	color: #000000;
 	font-weight: 500;
 }
@@ -3246,7 +3246,7 @@ select option
 	font-size: 12px;
 	font-weight: 400;
 	color: rgba(0,0,0,0.6);
-	margin-left: 8px;
+	margin-left: 4px;
 }
 .viewed_price span::after
 {
