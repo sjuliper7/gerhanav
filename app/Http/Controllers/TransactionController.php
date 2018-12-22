@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use App\CategoryProduct;
 use App\DetailTransaction;
 use App\RefBank;
@@ -17,18 +18,20 @@ class TransactionController extends Controller
 
     public function index()
     {
+        $products = Product::all();
         $categoryProducts = CategoryProduct::all();
         $user = Auth::user();
         $transactions = $user->transactions;
-        return view('transaction.index', compact('transactions','categoryProducts'));
+        return view('transaction.index', compact('transactions','categoryProducts','products'));
     }
 
     public function payment($order_id)
     {
+        $products = Product::all();
         $categoryProducts = CategoryProduct::all();
         $transaction = Transaction::where(['order_id' => $order_id])->firstOrFail();
         $refBanks = RefBank::all();
-        return view('transaction.confirm-payment',compact('transaction', 'refBanks','categoryProducts'));
+        return view('transaction.confirm-payment',compact('transaction', 'refBanks','categoryProducts','products'));
     }
 
     public function updatePayment(Request $request, $id){
@@ -62,7 +65,7 @@ class TransactionController extends Controller
 
     public function confirmPayment(Request $request)
     {
-        $carts = Auth::user()->carts;
+        $carts = Cart::where(['id_user' => Auth::user()->id, 'is_active' => true])->get();
         $statusTransactions = StatusTransaction::where(['name' => "Menunggu Pembayaran"])->firstOrFail();
 
         $transaction = new Transaction();

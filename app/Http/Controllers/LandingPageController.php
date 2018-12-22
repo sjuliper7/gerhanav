@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Catalog;
 use App\CategoryProduct;
 use App\Product;
 use App\Store;
@@ -10,9 +11,18 @@ use Illuminate\Support\Facades\Auth;
 
 class LandingPageController extends Controller
 {
+
+    public function allProducts(){
+        $products = Product::all();
+        $categoryProducts = CategoryProduct::all();
+
+        return view('all-products',compact('products','categoryProducts'));
+    }
+
     public function index(){
         $categoryProducts = CategoryProduct::all();
-        $products = Product::all();
+        $products = Product::select('name')->get();
+        $catalogs = Catalog::where(['is_active' => 1])->get();
         $productsView = Product::where('viewed', '!=' , 0)->get();
 
         $mostProductView = array();
@@ -37,7 +47,11 @@ class LandingPageController extends Controller
             array_push($mostProductView, $productsView[$i]);
         }
 
-        return view('landing-page',compact('categoryProducts', 'products','mostProductView'));
+
+        $products = $products->pluck('name')->toArray();
+        $products = json_encode($products);
+
+        return view('landing-page',compact('categoryProducts', 'products','mostProductView','catalogs','lastPrice'));
     }
 
     public function buyProduct($name){
@@ -70,12 +84,27 @@ class LandingPageController extends Controller
             }
         }
 
+        $check = false;
+        if(!Auth::guest()){
+            $transactions = Auth::user()->transactions;
+
+            foreach ($transactions as $transaction){
+                if($transaction->id_status == 6){
+                    $details = $transaction->detailTransactions;
+                    foreach ($details as $detail){
+                        if($detail->id_product == $product->id){
+                            $check =true;
+                        }
+                    }
+                }
+            }
+        }
+
         $desc .= "... ";
         $story .= "... ";
 
-        return view('detail-product',compact('product','images','reviews','desc','story','categoryProducts'));
+        return view('detail-product',compact('product','images','reviews','desc','story','categoryProducts','check'));
     }
-
 
     public function searchByName($name){
         $categoryProducts = CategoryProduct::all();
@@ -96,5 +125,18 @@ class LandingPageController extends Controller
 
     public function getUser(){
         return Auth::user()->id;
+    }
+
+    public function search(Request $request){
+        if($request['category'] === null){
+            $products = Product::where('name' ,'LIKE','%'.$request['name'].'%')->get();
+        }else{
+            $products = Product::where('name' ,'LIKE','%'.$request['name'].'%')
+                ->orWhere(['id_category' => $request['category']])
+                ->get();
+        }
+
+        $categoryProducts = CategoryProduct::all();
+        return view('search',compact('products','categoryProducts'));
     }
 }

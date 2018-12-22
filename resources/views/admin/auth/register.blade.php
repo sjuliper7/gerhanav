@@ -15,13 +15,11 @@
         </div>
     </div>
     </div>
-
 </head>
 
 <body>
-<div class="container">
+<div class="container mb-5">
     <div class="row">
-
         <div class="col-lg-6 .col-md-4 .col-sm-6">
             <div class="text-center">
                 <a href="{{ url('/home') }}">
@@ -114,17 +112,6 @@
                                 <button class="btn btn-lg btn-primary btn-block text-uppercase rounded" type="submit">
                                     Daftar
                                     Sekarang
-                                </button>
-
-                                <hr class="my-4">
-
-                                <button class="btn btn-lg btn-google btn-block text-uppercase rounded" type="submit"
-                                        style="background: #ea4335;"><i class="fab fa-google mr-2"></i> Sign up with
-                                    Google
-                                </button>
-                                <button class="btn btn-lg btn-facebook btn-block text-uppercase rounded" type="submit">
-                                    <i
-                                        class="fab fa-facebook-f mr-2"></i> Sign up with Facebook
                                 </button>
                             </form>
                         </div>

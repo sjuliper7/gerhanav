@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Notifications\EmailVerification;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
@@ -64,5 +65,18 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function reviews(){
         return $this->hasMany('App\Review','id_user');
+    }
+
+    public function refunds()
+    {
+        return $this->hasMany('App\Refund', 'id_user');
+    }
+
+    public function sendEmailVerificationNotification(){
+        $this->notify(new EmailVerification);
+    }
+
+    public function requestRefund(){
+        return $this->hasMany('App\RequestRefund','id_user');
     }
 }

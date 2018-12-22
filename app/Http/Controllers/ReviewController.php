@@ -17,7 +17,7 @@ class ReviewController extends Controller
     public function index()
     {
         $reviews = Review::orderBy('id','desc')->get();
-        return view('adminlte::reviews.index',compact('reviews'));
+        return view('admin.reviews.index',compact('reviews'));
     }
 
     /**
@@ -81,7 +81,16 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $review = Review::find($id);
+        $review = Review::findOrFail($id);
+        $product  = Product::findOrFail($review->id_product);
+        $reviews = Review::where(['id_product' => $product->id])->get();
+        if(count($reviews) != 0){
+            $product->rating = floor(($product->rating + $review->rating)/count($reviews));
+        }else{
+            $product->rating += $review->rating;
+        }
+
+        $product->save();
         $review->status = $request['status'];
         $review->save();
         return redirect('reviews');

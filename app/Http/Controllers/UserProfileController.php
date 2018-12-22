@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\CategoryProduct;
 use App\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+
 
 class UserProfileController extends Controller
 {
@@ -16,13 +18,10 @@ class UserProfileController extends Controller
      */
     public function index()
     {
+            $categoryProducts = CategoryProduct::all();
             $user=Auth::user();
-            $profiles = DB::table('user_profiles')
-//            ->join('users','user_profiles.id_user','=','users.id')
-//            ->select('user_profiles.*','users.*')
-                ->where('id_user','=',Auth::user()->id)
-                ->get();
-            return view('adminlte::user-profile.index', compact('profiles','user'));
+            $profile = $user->userProfile;
+            return view('admin.user-profile.index', compact('profile','user','categoryProducts'));
     }
 
     /**
@@ -32,8 +31,9 @@ class UserProfileController extends Controller
      */
     public function create()
     {
+
         $users = Auth::user();
-        return view('adminlte::user-profile.create',compact('userProfiles'));
+        return view('admin.user-profile.create',compact('userProfiles'));
     }
 
     /**
@@ -79,8 +79,9 @@ class UserProfileController extends Controller
      */
     public function edit($id)
     {
+        $categoryProducts = CategoryProduct::all();
         $profile = UserProfile::findOrFail($id);
-        return view ('adminlte::user-profile.edit', compact('profile'));
+        return view ('admin.user-profile.edit', compact('profile','categoryProducts'));
 
     }
 
@@ -96,6 +97,7 @@ class UserProfileController extends Controller
         $profile = UserProfile::findOrFail($id);
         $profile->full_name = $request['full_name'];
         $profile->address = $request['address'];
+        $profile->date_of_birth= $request['date_of_birth'];
 
 
         $img= $request->file('profile_image');
@@ -104,16 +106,6 @@ class UserProfileController extends Controller
             $request->file('profile_image')->move('images/',$filename);
             $profile->profile_image = $filename;
         }
-
-//        $profile->profile_image = $request['profile_image'];
-//        $profile->description = $request['description'];
-//
-//        $file       = $request->file('image_profile');
-//        $fileName   = $file->getClientOriginalName();
-//        if($fileName != $profile->image){
-//            $request->file('image')->move('images/',$fileName);
-//            $profile->profile_image = $fileName;
-//        }
 
         $profile->save();
 

@@ -119,3 +119,35 @@ Route::get('get-user','LandingPageController@getUser');
 Route::Post('/search','LandingPageController@search');
 
 Route::get('/test','RajaOngkirController@getProvinces');
+
+Route::Post('/add-catalog/{id}','CatalogController@save');
+
+Route::get('/list-catalog','CatalogController@list');
+
+Route::Post('/products/discount/{id}','CatalogController@discount');
+
+Route::resource('request-refund', 'RequestRefundController');
+
+Route::get('request-refund-admin', 'RequestRefundController@indexAdmin');
+
+Route::Post('/store-request/{id}', 'RequestRefundController@storeRequest');
+
+Route::get('request-refund-admin-show/{id}', 'RequestRefundController@showAdmin');
+
+Route::get('detail-request-refund/{id}', 'RequestRefundController@showUser');
+
+Route::Post('accept-request-refund/{id}', 'RequestRefundController@acceptRequest');
+
+Route::get('reject-request-refund/{id}', 'RequestRefundController@rejectRequest');
+
+Route::Post('store-reject-refund/{id}', 'RequestRefundController@storeReject');
+
+Route::resource('status-refund', 'StatusRefundController');
+
+Route::resource('refund', 'RefundController');
+
+Route::Post('store-refund/{id}', 'RefundController@storeRefund');
+
+Route::Post('complete-refund/{id}', 'RefundController@updateRefund');
+
+Route::get('/all-products','LandingPageController@allProducts');
