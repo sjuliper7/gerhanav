@@ -29,25 +29,25 @@
                          </div>
                          <div class="form-row">
                              <div class="form-group col-md-4">
-                                 <label>Harga</label>
+                                 <label>Harga Awal</label>
                                  <input type="text" name="price" value="{{$product->price}}" class="form-control" placeholder="harga" data-error="Please enter price" required>
                                  <div class="help-block with-errors"></div>
                              </div>
                              <div class="form-group col-md-4">
-                                 <label>Stok</label>
-                                 <input type="text" name="stock" value="{{$product->stock}}" class="form-control" placeholder="stok" data-error="Please enter stock" required>
+                                 <label>Discount (%)</label>
+                                 <input type="text" name="discount" value="{{$product->discount}}" class="form-control" placeholder="discount" data-error="Please enter price" required>
                                  <div class="help-block with-errors"></div>
                              </div>
                              <div class="form-group col-md-4">
-                                 <label>Berat</label>
-                                 <input type="text" name="weight" class="form-control" value="{{$product->weight}}" placeholder="berat" data-error="Please enter stock" required>
+                                 <label>Harga Akhir</label>
+                                 <input type="text" value="{{$lastPrice}}"class="form-control" placeholder="discount" data-error="Please enter price"readonly>
                                  <div class="help-block with-errors"></div>
                              </div>
                          </div>
                          <div class="form-row">
-                             <div class="form-group col-md-5">
+                             <div class="form-group col-md-6">
                                  <label>Kategori Produk</label>
-                                 <select name="category-select" id="select-category" class="form-control" required style="width: 100%">
+                                 <select name="category-select" id="select-category" class="form-control" required style="width: 100%; margin-left:-1px;">
                                      @foreach($categoryProducts as $categoryProduct)
                                          @if($categoryProduct->id == $product->id_category)
                                              <option selected="selected" value="{{$categoryProduct->id}}">{{$categoryProduct->name}}</option>
@@ -55,12 +55,10 @@
                                          <option value="{{$categoryProduct->id}}">{{$categoryProduct->name}}</option>
                                      @endforeach
                                  </select>
-
                              </div>
-
                              <div class="form-group col-md-6">
                                  <label>Status Produk</label>
-                                 <select name="status-select" id="select-status" class="form-control" style="width: auto">
+                                 <select name="status-select" id="select-status" class="form-control" style="width: 100%;margin-left:-1px;">
                                      @foreach($statusProducts as $statusProduct)
                                          @if($statusProduct->id == $product->id_status)
                                              <option selected="selected" value="{{$statusProduct->id}}">{{$statusProduct->name}}</option>
@@ -69,10 +67,21 @@
                                      @endforeach
                                  </select>
                              </div>
-
                          </div>
                          <div class="form-row">
                              <div class="form-group col-md-6">
+                                 <label>Stok</label>
+                                 <input type="text" name="stock" value="{{$product->stock}} " class="form-control" placeholder="stok" data-error="Please enter stock" required>
+                                 <div class="help-block with-errors"></div>
+                             </div>
+                             <div class="form-group col-md-6">
+                                 <label>Berat</label>
+                                 <input type="text" name="weight" class="form-control" value="{{$product->weight}} " placeholder="berat" data-error="Please enter stock" required>
+                                 <div class="help-block with-errors"></div>
+                             </div>
+                         </div>
+                         <div class="form-row">
+                             <div class="form-group col-md-12">
                                  <label>Deskripsi</label>
                                  <textarea name="description" id="summernote" class="form-control" rows="4" placeholder="deskripsi" required>{{$product->description}}</textarea>
                              </div>
@@ -90,7 +99,8 @@
 
                      </div>
 
-                    <div class="col-md-5" style="margin-left: 20px   ">
+
+                    <div class="col-md-5" style="margin-left: 40px   ">
                         <div class="form-group">
                             <label>Images</label>
                             <div class="form-row">
