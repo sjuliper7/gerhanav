@@ -46,6 +46,7 @@ class OwnerProductController extends Controller
         $product->price = $request['price'];
         $product->stock = $request['stock'];
         $product->description = $request['description'];
+        $product->discount = $request['discount'];
         $product->story = $request['story'];
         $product->weight = $request['weight'];
         $product->id_status = $request['status-select'];
@@ -87,6 +88,7 @@ class OwnerProductController extends Controller
         $product->price = $request['price'];
         $product->stock = $request['stock'];
         $product->weight = $request['weight'];
+        $product->discount = $request['discount'];
         $product->description = $request['description'];
         $product->story = $request['story'];
         $product->id_status = $request['status-select'];
@@ -116,10 +118,14 @@ class OwnerProductController extends Controller
     {
         $product = Product::with('status','category')->findOrFail($id);
         $images = json_decode($product->images);
+        $firstPrice= $product->price;
+        $discount= $product->discount;
+        $price_discount= $discount/100*$firstPrice;
+        $lastPrice = $firstPrice - $price_discount;
 
         $statusProducts  = StatusProduct::all();
         $categoryProducts = CategoryProduct::all();
-        return view ('owner-product.edit', compact('product','statusProducts','categoryProducts','images'));
+        return view ('owner-product.edit', compact('product','statusProducts','categoryProducts','images','lastPrice'));
     }
 
     public function  listTransaction($id)
