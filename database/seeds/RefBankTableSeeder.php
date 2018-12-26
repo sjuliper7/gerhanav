@@ -15,21 +15,21 @@ class RefBankTableSeeder extends Seeder
         DB::table('ref_banks')->insert(
             [
                 'account_vendor' => "BRI",
-                'account_number' => "8765432123",
+                'account_number' => "530601021725535",
             ]
         );
 
         DB::table('ref_banks')->insert(
             [
                 'account_vendor' => "BNI",
-                'account_number' => "0987654321234",
+                'account_number' => "0387218257",
             ]
         );
 
         DB::table('ref_banks')->insert(
             [
                 'account_vendor' => "MANDIRI",
-                'account_number' => "123456789009",
+                'account_number' => "1070007647326",
             ]
         );
     }
