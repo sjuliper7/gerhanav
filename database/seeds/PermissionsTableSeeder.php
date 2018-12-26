@@ -72,7 +72,24 @@ class PermissionsTableSeeder extends Seeder
 
         DB::table('permissions')->insert(
             [
+                'name' => "Administer User",
+                'guard_name' => "web",
+                'created_at' => Carbon::now(),
+            ]
+        );
+
+
+        DB::table('permissions')->insert(
+            [
                 'name' => "Administer Bank Reference",
+                'guard_name' => "web",
+                'created_at' => Carbon::now(),
+            ]
+        );
+
+        DB::table('permissions')->insert(
+            [
+                'name' => "Administer Users",
                 'guard_name' => "web",
                 'created_at' => Carbon::now(),
             ]
@@ -108,6 +125,71 @@ class PermissionsTableSeeder extends Seeder
                 'role_id' => 1,
             ]
         );
+
+        DB::table('role_has_permissions')->insert(
+            [
+                'permission_id' => 2,
+                'role_id' => 1,
+            ]
+        );
+
+        DB::table('role_has_permissions')->insert(
+            [
+                'permission_id' => 3,
+                'role_id' => 1,
+            ]
+        );
+
+        DB::table('role_has_permissions')->insert(
+            [
+                'permission_id' => 4,
+                'role_id' => 1,
+            ]
+        );
+
+        DB::table('role_has_permissions')->insert(
+            [
+                'permission_id' => 5,
+                'role_id' => 1,
+            ]
+        );
+
+        DB::table('role_has_permissions')->insert(
+            [
+                'permission_id' => 6,
+                'role_id' => 1,
+            ]
+        );
+
+        DB::table('role_has_permissions')->insert(
+            [
+                'permission_id' => 7,
+                'role_id' => 1,
+            ]
+        );
+
+        DB::table('role_has_permissions')->insert(
+            [
+                'permission_id' => 8,
+                'role_id' => 1,
+            ]
+        );
+
+        DB::table('role_has_permissions')->insert(
+            [
+                'permission_id' => 9,
+                'role_id' => 1,
+            ]
+        );
+
+        DB::table('role_has_permissions')->insert(
+            [
+                'permission_id' => 10,
+                'role_id' => 1,
+            ]
+        );
+
+
 //
 //        DB::table('role_has_permissions')->insert(
 //            [

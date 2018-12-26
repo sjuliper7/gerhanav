@@ -178,12 +178,12 @@
                                 <p>User Status</p>
                             </a>
                         </li>
-                        <li style="margin-top: -25px;">
-                            <a href="/user-types">
-                                <i class="ti-link" style="font-size: 20px"></i>
-                                <p>User Type</p>
-                            </a>
-                        </li>
+                        {{--<li style="margin-top: -25px;">--}}
+                            {{--<a href="/user-types">--}}
+                                {{--<i class="ti-link" style="font-size: 20px"></i>--}}
+                                {{--<p>User Type</p>--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
                     </ul>
                 </li>
                 <li id="transactions" class="">
