@@ -11,21 +11,21 @@ class ProductTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('products')->insert(
-            [
-                'name'  => "Sor Tali",
-                'price' => "50000",
-                'stock' => "20",
-                'description' => "Dibuat dari bahan yang lembut",
-                'story' => "Produk ini hasil kerajinan tangan Orang Balige",
-                'images'=> '["tas-batak1.jpg","tas-batak2.jpg"]',
-                'weight'=> "4",
-                'viewed' => 3,
-                'id_status'=> '2',
-                'id_category'=> '2',
-                'id_store'=> '1',
-            ]
-        );
+//        DB::table('products')->insert(
+//            [
+//                'name'  => "Sor Tali",
+//                'price' => "50000",
+//                'stock' => "20",
+//                'description' => "Dibuat dari bahan yang lembut",
+//                'story' => "Produk ini hasil kerajinan tangan Orang Balige",
+//                'images'=> '["tas-batak1.jpg","tas-batak2.jpg"]',
+//                'weight'=> "4",
+//                'viewed' => 3,
+//                'id_status'=> '2',
+//                'id_category'=> '2',
+//                'id_store'=> '1',
+//            ]
+//        );
 
 //        DB::table('products')->insert(
 //            [
