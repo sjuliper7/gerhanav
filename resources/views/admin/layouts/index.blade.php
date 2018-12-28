@@ -212,12 +212,12 @@
                         <p>Store</p>
                     </a>
                     <ul class="nav tree" style="margin-top: -25px;margin-left: 10px"  >
-                        <li style="margin-top: -5px;">
-                            <a href="/stores">
-                                <i class="ti-link" style="font-size: 20px"></i>
-                                <p>Store</p>
-                            </a>
-                        </li>
+                        {{--<li style="margin-top: -5px;">--}}
+                            {{--<a href="/stores">--}}
+                                {{--<i class="ti-link" style="font-size: 20px"></i>--}}
+                                {{--<p>Store</p>--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
                         <li style="margin-top: -25px;">
                             <a href="/request-stores">
                                 <i class="ti-link" style="font-size: 20px"></i>
