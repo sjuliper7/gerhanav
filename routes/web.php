@@ -126,6 +126,8 @@ Route::get('/list-catalog','CatalogController@list');
 
 Route::Post('/products/discount/{id}','CatalogController@discount');
 
+Route::Post('/merchant/discount/{id}','OwnerProductController@discount');
+
 Route::resource('request-refund', 'RequestRefundController');
 
 Route::get('request-refund-admin', 'RequestRefundController@indexAdmin');
