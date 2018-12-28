@@ -153,9 +153,13 @@ class OwnerProductController extends Controller
         return view('owner-product.list_transaction')->with('detailTransactions',$detailTransactions);
 
         //dd($productTransactions);
+    }
 
-
-
+    public function discount(Request $request, $id){
+        $product = Product::findOrFail($id);
+        $product->discount = $request['discount'];
+        $product->save();
+        return redirect()->route('owner-products.show', $product->id);
     }
 
 }
