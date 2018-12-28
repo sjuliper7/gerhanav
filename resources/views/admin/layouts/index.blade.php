@@ -218,7 +218,7 @@
                                 {{--<p>Store</p>--}}
                             {{--</a>--}}
                         {{--</li>--}}
-                        <li style="margin-top: -25px;">
+                        <li style="margin-top: -5px;">
                             <a href="/request-stores">
                                 <i class="ti-link" style="font-size: 20px"></i>
                                 <p>Store Requests</p>
