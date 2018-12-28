@@ -27,10 +27,11 @@
                 <h2>{{ $product->name}}</h2>
                 <hr>
                 @if($product->discount !=0)
-                    <label>Harga <h3>Rp.{{number_format($product->price-($product->price*$product->discount/100)),0}}</h3></label><span style="margin-left: 10px;text-decoration: line-through;color:red;">Rp.{{number_format($product->price)}}</span>
+                    <label> <h3>Harga : Rp.{{number_format($product->price-($product->price*$product->discount/100)),0}}</h3></label><span style="margin-left: 10px;text-decoration: line-through;color:red;">Rp.{{number_format($product->price)}}</span>
                 @else
-                    <label>Harga <h3>Rp {{number_format($product->price)}}</h3></label>
+                    <label> <h3>Harga : Rp {{number_format($product->price)}}</h3></label>
                 @endif
+                <p>Diskon : {{ $product->discount }} %</p>
                 <p>Stok : {{ $product->stock }} pcs</p>
                 <p>Kategori  : {{ $product->category->name}} </p>
                 <p>Status  : {{ $product->status->name}} </p>
