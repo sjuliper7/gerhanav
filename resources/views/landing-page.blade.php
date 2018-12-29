@@ -512,17 +512,23 @@
                                                 ?>
                                                 <div class="viewed_image">
                                                     <div class="product_image d-flex flex-column align-items-center justify-content-center">
+                                                        <a href="{{ URL::to('buy/' . $catalog->product->name ) }}">
                                                         <img src="{{ asset('images/'.$images[0]) }}" style="width:120px;height:120px; object-fit: cover;"  >
+                                                        </a>
                                                     </div>
                                                 </div>
 
                                                     <div class="viewed_content text-center">
                                                         @if($catalog->product->discount !=0)
                                                             <div class="viewed_price">Rp.{{$catalog->product->price-($catalog->product->price*$catalog->product->discount/100)}}<span>Rp.{{$catalog->product->price}}</span></div>
-                                                            <div class="viewed_name" >{{$catalog->product->name}}</div>
+                                                            <a href="{{ URL::to('buy/' . $catalog->product->name ) }}">
+                                                                <div class="viewed_name" >{{$catalog->product->name}}</div>
+                                                            </a>
                                                         @else
                                                             <div class="viewed_price">Rp. {{number_format($catalog->product->price,0)}}</div>
-                                                            <div class="viewed_name">{{$catalog->product->name}}</div>
+                                                            <a href="{{ URL::to('buy/' . $catalog->product->name ) }}">
+                                                                <div class="viewed_name">{{$catalog->product->name}}</div>
+                                                            </a>
                                                         @endif
                                                     </div>
 
@@ -571,17 +577,23 @@
 
                                                 <div class="viewed_image">
                                                     <div class="product_image d-flex flex-column align-items-center justify-content-center">
-                                                        <img src="{{ asset('images/'.$images[0]) }}" style="width:120px;height:120px; object-fit: cover;"  >
+                                                        <a href="{{ URL::to('buy/' . $catalog->product->name ) }}">
+                                                            <img src="{{ asset('images/'.$images[0]) }}" style="width:120px;height:120px; object-fit: cover;"  >
+                                                        </a>
                                                     </div>
                                                 </div>
 
                                                 <div class="viewed_content text-center">
                                                     @if($mv->discount !=0)
                                                         <div class="viewed_price">Rp.{{$mv->price-($mv->price*$mv->discount/100)}}<span>Rp.{{$mv->price}}</span></div>
-                                                        <div class="viewed_name" >{{$catalog->product->name}}</div>
+                                                        <a href="{{ URL::to('buy/' . $catalog->product->name ) }}">
+                                                            <div class="viewed_name" >{{$catalog->product->name}}</div>
+                                                        </a>
                                                     @else
                                                         <div class="viewed_price">Rp. {{number_format($mv->price,0)}}</div>
-                                                        <div class="viewed_name">{{$mv->name}}</div>
+                                                        <a href="{{ URL::to('buy/' . $catalog->product->name ) }}">
+                                                            <div class="viewed_name">{{$mv->name}}</div>
+                                                        </a>
                                                     @endif
                                                 </div>
 

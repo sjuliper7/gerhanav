@@ -26,7 +26,12 @@
             <div class="col-md-6">
                 <h2>{{ $product->name}}</h2>
                 <hr>
-                <b><p class="lead text-danger">Harga : Rp {{ number_format($product->price,2) }} </p></b>
+                @if($product->discount !=0)
+                    <label> <h3>Harga : Rp.{{number_format($product->price-($product->price*$product->discount/100)),0}}</h3></label><span style="margin-left: 10px;text-decoration: line-through;color:red;">Rp.{{number_format($product->price)}}</span>
+                @else
+                    <label> <h3>Harga : Rp {{number_format($product->price)}}</h3></label>
+                @endif
+                <p>Diskon : {{ $product->discount }} %</p>
                 <p>Stok : {{ $product->stock }} pcs</p>
                 <p>Kategori  : {{ $product->category->name}} </p>
                 <p>Status  : {{ $product->status->name}} </p>
@@ -89,6 +94,10 @@
 
                 <hr>
                 {!! Form::open(['method' => 'DELETE', 'route' => ['products.destroy', $product->id] ]) !!}
+
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myDiscount">Discount</button>
+
+
                 <a href="{{ url()->previous() }}" class="btn btn-primary">Kembali</a>
                 {{--@can('Edit Post')--}}
                 <a href="{{ route('owner-products.edit', $product->id) }}" class="btn btn-info" role="button">Ubah</a>
@@ -99,6 +108,52 @@
                     <input name="_method" type="hidden" value="DELETE">
                     <button class="btn btn-danger" onclick="return confirm('Are you sure?')" type="submit">Hapus</button>
                 </form>
+
+                {{--Discount--}}
+                <form action="{{url('/merchant/discount/'.$product->id)}}" method="post" id="myForm" data-toggle="validator" role="form" enctype="multipart/form-data">
+                    <input type="hidden" name="_method" value="POST ">
+                    {{ csrf_field() }}
+                    <div class="modal fade" id="myDiscount">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Diskon Produk</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-1">
+                                            <p class="medium"></p>
+                                        </div>
+                                        <div class="form-group col-md-8">
+                                            <p class="medium" style="margin-top: 8px;">Discount product saat ini {{$product->discount}}%, ubah menjadi</p>
+                                        </div>
+                                        <div class="form-group col-md-2" style="margin-left: 0px;">
+                                            <input type="text" name="discount" value="{{$product->discount}}"  class="form-control border-input" data-error="Please enter name" required>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="form-group col-md-1" style="margin-top: 8px;margin-left: -35px;">
+                                            <p class="medium">%</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <input type="submit" id="add" value="Ubah Discount" class="btn btn-info" style="margin-top: 10px;">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </form>
+
                 {{--onclick="return confirm('Are you sure?')"--}}
                 {{--@endcan--}}
                 {!! Form::close() !!}

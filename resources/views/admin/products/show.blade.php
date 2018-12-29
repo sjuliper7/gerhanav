@@ -27,14 +27,17 @@
                 <div class="col-md-6">
                     <h1>{{ $product->name}}</h1>
                     <hr>
-                    <p class="lead text-danger">Harga : Rp {{ number_format($product->price,2) }} </p>
-                    <p class="lead text-danger">Discount : {{ number_format($product->discount) }}% </p>
-                    <p class="lead text-danger">Harga Akhir: Rp {{ number_format($lastPrice,2) }} </p>
-                    <p class="lead text-success">Stok : {{ $product->stock }} pcs</p>
-                    <p class="lead text-success">Kategori  : {{ $product->category->name}} </p>
-                    <p class="lead text-success">Status  : {{ $product->status->name}} </p>
-                    <p class="small">Deskripsi  : {!! $product->description !!} </p>
-                    <p class="small">Cerita  : {!! $product->story !!} </p>
+                    @if($product->discount !=0)
+                        <label style="margin-top:-25px; "> <h3>Harga : Rp.{{number_format($product->price-($product->price*$product->discount/100)),0}}</h3></label><span style="margin-left: 10px;text-decoration: line-through;color:red;">Rp.{{number_format($product->price)}}</span>
+                    @else
+                        <label> <h3>Harga : Rp {{number_format($product->price)}}</h3></label>
+                    @endif
+                    <p>Diskon : {{ $product->discount }} %</p>
+                    <p>Stok : {{ $product->stock }} pcs</p>
+                    <p>Kategori  : {{ $product->category->name}} </p>
+                    <p>Status  : {{ $product->status->name}} </p>
+                    <p>Deskripsi  : {!! $product->description !!} </p>
+                    <p>Cerita  : {!! $product->story !!} </p>
 
 
                     <hr>
