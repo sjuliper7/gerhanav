@@ -3,6 +3,23 @@
 @section('title', '| Product')
 
 @section('content')
+
+    <style>
+        .circle {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 10px;
+            color: #fff;
+            line-height: 35px;
+            text-align: center;
+            background: #df3b3b;
+            margin-top: -200px;
+            margin-left: 10px;
+            position: absolute;
+        }
+    </style>
+
     <div class="content">
         <div class="container-fluid">
             <div class="col-lg-offset-0 col-lg-11">
@@ -48,14 +65,23 @@
                                 ?>
                                 <div class="col-lg-3 col-xs-5" style="margin-top: 1em;">
                                     <!-- small box -->
-                                    <div class="card" style="width: 17rem">
-                                        <img class="card-img-top center-block" src="{{ asset('images/'.$images[0])  }}" style="width:150px;height:150px;margin-bottom: 10px; padding: 10px; object-fit: cover;" alt="Card image cap">
+
+                                        <img class="card-img-top center-block" src="{{ asset('images/'.$images[0])  }}" style="width:150px;height:150px;margin-bottom: 10px; padding: 10px; object-fit: cover;" alt="Card image cap" />
+
                                         <div class="card-body" >
                                             <h5 class="card-title text-center">{{$product->name}}</h5>
-                                            <p class="card-text" style="text-align: center; font-weight:550; font-size: large; color: #262323 " >Rp {{number_format($product->price)}}</p>
-                                            <div style="padding: 10px">
-                                                <a href="{{ route('products.show', $product->id ) }}" class="btn btn-info btn-block">Detail</a>
-                                            </div>
+                                            @if($product->discount !=0)
+                                                <div class="card-img-top center-block circle" ">{{$product->discount}}%</div>
+                                                <p class="card-text" style="text-align: center;  font-size: 13px; color: #262323 " >Rp.{{number_format($product->price-($product->price*$product->discount/100)),0}}<span style="margin-left: 5px;text-decoration: line-through;color:red; font-size: 11px;">Rp.{{number_format($product->price)}}</span></p>
+                                                <div style="padding: 10px; ">
+                                                    <a href="{{ route('products.show', $product->id ) }}" class="btn btn-info btn-block">Detail</a>
+                                                </div>
+                                            @else
+                                                <p class="card-text" style="text-align: center;  font-size: 13px; color: #262323 " >Rp {{number_format($product->price)}}</p>
+                                                <div style="padding: 10px">
+                                                    <a href="{{ route('products.show', $product->id ) }}" class="btn btn-info btn-block">Detail</a>
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

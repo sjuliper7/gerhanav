@@ -49,17 +49,28 @@
                                             <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                 <img src="{{ asset('images/'.$images[0]) }}" style="width:120px;height:120px; object-fit: cover;"  >
                                             </div>
+
                                             <div class="product_content">
-                                                <div class="product_price">Rp {{number_format($product->price)}}</div>
-                                                <div class="product_name">
-                                                    <div>
-                                                        {{$product->name}}
+                                                @if($product->discount !=0)
+                                                    <div class="product_price">Rp.{{number_format( $product->price-($product->price*$product->discount/100)),0}}<span>Rp.{{$product->price}}</span></div>
+                                                    <div class="product_name"><div><a href="{{ url('owner-products/'.$product->id ) }}" tabindex="0">{{$product->name}}</a></div></div>
+                                                @else
+                                                    <div class="product_content">
+                                                        <div class="product_price">{{$product->price}}</div>
+                                                        <div class="product_name"><div><a href="{{ url('owner-products/'.$product->id ) }}" tabindex="0">{{$product->name}}</a></div></div>
                                                     </div>
-                                                </div>
+                                                @endif
                                             </div>
                                             <div class="product_category" style="margin-top: 1em">
                                                 <h4 class="product-title"><a href="{{url('owner-products/'.$product->id)}}">Detail Produk</a></h4>
                                             </div>
+
+                                            <ul class="product_marks">
+                                                @if($product->discount!=0)
+                                                    <li class="product_mark product_discount">{{$product->discount}}%</li>
+                                                    <li class="product_mark product_new">new</li>
+                                                @endif
+                                            </ul>
                                         </div>
                                     @endforeach
                                 </div>
