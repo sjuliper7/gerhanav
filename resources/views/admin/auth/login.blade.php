@@ -20,14 +20,14 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class=".col-lg-6 .col-md-6 .col-sm-12 text-center">
+        <div class="col-lg-6 col-md-6 col-sm-12 text-center">
             <a href="{{ url('/home') }}">
                 <img src="{{asset('images/new_login.png')}}" alt="Responsive image" style="max-width: 100%;height: auto">
             </a>
             <h3> Selamat datang di BatakZone</h3></b>
             <h5 class="font-weight-normal">Masuk dan penuhi berbagai kebutuhanmu disini.</h5>
         </div>
-        <div class=".col-lg-5 .col-md-5 .col-sm-12" style="margin-left: 2em" >
+        <div class="col-lg-5 col-md-5 col-sm-12" style="margin-left: 2em" >
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     {{--<strong>Whoops!</strong>Ada beberapa masalah<br><br>--}}

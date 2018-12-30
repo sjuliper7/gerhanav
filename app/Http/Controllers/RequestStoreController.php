@@ -62,7 +62,6 @@ class RequestStoreController extends Controller
         $requestStore->store_phone        = $request['store-phone'];
         $requestStore->store_address      = $request['store-address'];
         $requestStore->store_ktp          = $request['store-ktp'];
-        $requestStore->store_npwp         = $request['store-npwp'];
         $requestStore->store_account_bank = $request['store-account-number'];
         $requestStore->store_account_type = $request['type-bank'];
         $requestStore->store_province     = $request['province-select'];
@@ -75,16 +74,23 @@ class RequestStoreController extends Controller
         $ktpFileName   = $ktpFile->getClientOriginalName();
         $request->file('ktp-image')->move('images/',$ktpFileName);
 
-        $npwpFile    = $request->file('npwp-image');
-        $npwpFileName   = $npwpFile->getClientOriginalName();
-        $request->file('npwp-image')->move('images/',$npwpFileName);
+        if($request->file('npwp-image') != null){
+            $npwpFile    = $request->file('npwp-image');
+            $npwpFileName   = $npwpFile->getClientOriginalName();
+            $request->file('npwp-image')->move('images/',$npwpFileName);
+            $requestStore->store_npwp         = $request['store-npwp'];
+            $requestStore->store_npwp_image            = $npwpFileName;
+        }else{
+            $requestStore->store_npwp_image            = "-";
+            $requestStore->store_npwp                  = "-";
+        }
+
 
         $accountFile    = $request->file('account-image');
         $accountFileName   = $accountFile->getClientOriginalName();
         $request->file('account-image')->move('images/',$accountFileName);
 
         $requestStore->store_ktp_image             = $ktpFileName;
-        $requestStore->store_npwp_image            = $npwpFileName;
         $requestStore->store_account_bank_image    = $accountFileName;
         $requestStore->comment                     = "-";
 

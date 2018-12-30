@@ -240,12 +240,12 @@
                         <div class="form-group row">
                             <div class="col-sm-6">
                                 <label>Nomor NPWP</label>
-                                <input type="text" class="form-control" id="idKtp" placeholder="Nomor NPWP" name="store-npwp"  required>
+                                <input type="text" class="form-control" id="idKtp" placeholder="Nomor NPWP" name="store-npwp">
                             </div>
                             <div class="col-sm-6">
                                 <label>Foto NPWP</label>
                                 <div class="form-group">
-                                    <img src="http://placehold.it/400x400" id="show_npwp" style="max-width:200px;max-height:200px;" class="center-block" required/>
+                                    <img src="http://placehold.it/400x400" id="show_npwp" style="max-width:200px;max-height:200px;" class="center-block"/>
                                 </div>
 
                                 <div class="form-group">
