@@ -573,7 +573,6 @@
                                             <?php
                                                 $images = json_decode($mv->images);
                                             ?>
-
                                                 <div class="viewed_image">
                                                     <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                                         <a href="{{ URL::to('buy/' . $mv->name ) }}">
@@ -581,7 +580,6 @@
                                                         </a>
                                                     </div>
                                                 </div>
-
                                                 <div class="viewed_content text-center">
                                                     @if($mv->discount !=0)
                                                         <div class="viewed_price">Rp.{{$mv->price-($mv->price*$mv->discount/100)}}<span>Rp.{{$mv->price}}</span></div>
@@ -590,7 +588,7 @@
                                                         </a>
                                                     @else
                                                         <div class="viewed_price">Rp. {{number_format($mv->price,0)}}</div>
-                                                        <a href="{{ URL::to('buy/' . $mv->product->name ) }}">
+                                                        <a href="{{ URL::to('buy/' . $mv->name ) }}">
                                                             <div class="viewed_name">{{$mv->name}}</div>
                                                         </a>
                                                     @endif
