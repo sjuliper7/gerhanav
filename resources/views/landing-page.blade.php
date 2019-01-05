@@ -562,7 +562,6 @@
                             <h3 class="viewed_title">Paling Banyak Dilihat</h3>
                             <div class="tabs_line"><span style="background-color: #8b0000"></span></div>
                     </div>
-
                     <div class="card-body">
                         <div class="viewed_slider_container">
                             <div class="owl-carousel owl-theme viewed_slider">
@@ -577,7 +576,7 @@
 
                                                 <div class="viewed_image">
                                                     <div class="product_image d-flex flex-column align-items-center justify-content-center">
-                                                        <a href="{{ URL::to('buy/' . $mv->product->name ) }}">
+                                                        <a href="{{ URL::to('buy/' . $mv->name ) }}">
                                                             <img src="{{ asset('images/'.$images[0]) }}" style="width:120px;height:120px; object-fit: cover;"  >
                                                         </a>
                                                     </div>
@@ -586,7 +585,7 @@
                                                 <div class="viewed_content text-center">
                                                     @if($mv->discount !=0)
                                                         <div class="viewed_price">Rp.{{$mv->price-($mv->price*$mv->discount/100)}}<span>Rp.{{$mv->price}}</span></div>
-                                                        <a href="{{ URL::to('buy/' . $mv->product->name ) }}">
+                                                        <a href="{{ URL::to('buy/' . $mv->name ) }}">
                                                             <div class="viewed_name" >{{$catalog->product->name}}</div>
                                                         </a>
                                                     @else

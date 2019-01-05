@@ -46,7 +46,7 @@ class LandingPageController extends Controller
         for($i=0; $i<$max;$i++){
             array_push($mostProductView, $productsView[$i]);
         }
-
+        
 
         $products = $products->pluck('name')->toArray();
         $products = json_encode($products);
