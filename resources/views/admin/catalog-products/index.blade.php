@@ -44,11 +44,16 @@
                                             <tbody>
                                             @foreach($products as $product)
                                                 @if($product->id_category == $category->id)
+                                                    <?php
+                                                    $images = json_decode($product->images);
+                                                    ?>
                                                     <tr>
-                                                        <td>{{$product->image}}</td>
+                                                        <td><img src="{{asset('images/'.$images[0])}}" style="max-width: 100px;max-height: 100px; padding: 5px"></td>
                                                         <td>{{$product->store->store_name}}</td>
                                                         <td>{{$product->name}}</td>
-
+                                                        <td>
+                                                            <a href="{{ route('catalog-products.show', $product->id ) }}" class="btn btn-info btn-block">Detail</a>
+                                                        </td>
                                                     </tr>
                                                 @endif
                                             @endforeach
