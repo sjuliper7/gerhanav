@@ -15,8 +15,7 @@
                     <input type="hidden" name="_method" value="PUT">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label>Name</label>
-                        <label>Name</label>
+                        <label>Name Vendor</label>
                         <input type="text" name="account_vendor" class="form-control" value="{{$refBanks->account_vendor}}" data-error="Please enter name" required>
 
                         <div class="help-block with-errors"></div>
@@ -25,7 +24,7 @@
                     <div class="form-group">
                         <label>Account Number</label>
 
-                        <input type="text" name="account_vendor" class="form-control" value="{{$refBanks->account_number}}" data-error="Please enter name" required>
+                        <input type="text" name="account_number" class="form-control" value="{{$refBanks->account_number}}" data-error="Please enter name" required>
                         <div class="help-block with-errors"></div>
                     </div>
 

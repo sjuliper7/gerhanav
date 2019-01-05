@@ -83,7 +83,6 @@ class RefBankController extends Controller
         $refBanks = RefBank::findOrFail($id);
         $refBanks->account_vendor = $request['account_vendor'];
         $refBanks->account_number = $request['account_number'];
-
         $refBanks->save();
 
         return redirect()->route('ref-banks.index')
