@@ -54,7 +54,6 @@ class RajaOngkirController extends Controller
     }
 
     public function estimateCost(Request $request){
-
         $client = new Client([
             'base_uri' => 'https://pro.rajaongkir.com/api/',
             'headers' => [
@@ -64,8 +63,8 @@ class RajaOngkirController extends Controller
         ]);
 
         $response = $client->request('POST', 'cost', ['form_params' => [
-                'origin' => 481,
-                'originType' => 'city',
+                'origin' => 6657,
+                'originType' => 'subdistrict',
                 'destination' => $request["subdistrict_id"],
                 'destinationType' => 'subdistrict',
                 'weight' => 1000,
@@ -73,7 +72,11 @@ class RajaOngkirController extends Controller
             ]
         ]);
         $costs = json_decode($response->getBody()->getContents());
-        $cost = $costs->rajaongkir->results[0]->costs[1]->cost;
+        if(count($costs->rajaongkir->results[0]->costs) == 1){
+            $cost = $costs->rajaongkir->results[0]->costs[0]->cost;
+        }else{
+            $cost = $costs->rajaongkir->results[0]->costs[1]->cost;
+        }
         return $cost;
     }
 }
