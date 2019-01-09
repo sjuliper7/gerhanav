@@ -6,8 +6,6 @@
     <div class="single_product">
         <div class="container">
             <div class="row">
-
-
                 <!-- Images -->
                 <div class="col-lg-2 order-lg-1 order-2">
                     <ul class="image_list">
@@ -20,10 +18,31 @@
 
                 <!-- Selected Image -->
                 <div class="col-lg-5 order-lg-2 order-1">
-                    <div class="image_selected"><img id="image" src="{{ asset('images/'.$images[0]) }}" alt=""></div>
+                    <div class="form-row">
+                        <div class="image_selected"><img id="image" src="{{ asset('images/'.$images[0]) }}" alt=""></div>
+                    </div>
+                    {{--<div class="row" style="margin-left: -150px">--}}
+                        <div class="form-row" style="font-size: 14px; margin-left: -15px;">
+                            Keterangan :
+                        </div>
+                        <div class="form-row" style="font-size: 14px;margin-left: -15px;">
+                            Jika ingin menanyakan informasi lebih lanjut mengenai produk ini silahkan menghubungi:
+                        </div>
+                        <div class="form-row" style="font-size: 14px;margin-left: -15px;">
+                            No.Hp :{{$product->store->store_phone}}
+                        </div>
+                        <div class="form-row" style="font-size: 14px;margin-left: -15px;">
+                            Email :{{$product->store->store_email}}
+                        </div>
+                    {{--</div>--}}
                 </div>
+
                 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-                <!-- Description -->
+
+
+
+
+                    <!-- Description -->
                 <div class="col-lg-5 order-3">
                     <div class="container">
                         <div class="form-row">
