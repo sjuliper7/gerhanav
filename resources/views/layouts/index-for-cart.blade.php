@@ -396,83 +396,52 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-2">
+                <div class="col-lg-4">
                     <div class="footer_column">
                         <div class="footer_title"><h4>BatakZone</h4></div>
-                        <ul class="footer_list">
-                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Tentang Kami</h5></a>
-                            </div>
-                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Hubungi Kami</h5></a>
-                            </div>
-                        </ul>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-2 ">
-                    <div class="footer_column">
-                        <div class="footer_title"><h4>Beli</h4></div>
-                        <ul class="footer_list">
-                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Cara Belanja</h5></a>
-                            </div>
-                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Pembayaran</h5></a>
-                            </div>
-                        </ul>
+                        <div class="footer_contact_text">
+                            BatakZone adalah situs jual beli online untuk produk handmade khas batak. Temukan berbagai produk yang unik dari daerah sekitar Tobasa.
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-lg-2">
-                    <div class="footer_column">
-                        <div class="footer_title"><h4>Jual</h4></div>
-                        <ul class="footer_list">
-                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Cara Berjualan
-                                        Online</h5></a></div>
-                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Pencairan Dana</h5></a>
-                            </div>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-3">
                     <div class="footer_column">
                         <div class="footer_title"><h4>Bantuan</h4></div>
                         <ul class="footer_list">
-                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Syarat dan
-                                        Ketentuan</h5></a></div>
-                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Kebijakan Privasi</h5>
-                                </a></div>
-
-                            <div class="" style="margin-bottom: 1em"><img src="{{asset('images/phone_icon.png')}}"
-                                                                          style="max-width: 100%;max-height: 100%">+62
-                                821-6548-5311
-                            </div>
-                            <div class="" style="margin-bottom: 1em"><img src="{{asset('images/email_icon.png')}}"
-                                                                          style="max-width: 100%;max-height: 100%">
-                                cs@batakzone.com
-                            </div>
-
+                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Cara Berjualan Online</h5></a></div>
+                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Pencairan Dana</h5></a></div>
+                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Cara Belanja</h5></a></div>
+                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Pembayaran</h5></a></div>
+                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Syarat dan Ketentuan</h5></a></div>
+                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000"> Kebijakan Privasi</h5></a></div>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-lg-3">
+                    <div class="footer_column">
+                        <div class="footer_title"><h4>Layanan Pengguna</h4></div>
+                        <ul class="footer_list">
+                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000">+62 821-6548-5311</h5></a></div>
+                            <div class="footer_subtitle"><a href="#"><h5 style="color: #8b0000">admin@batakzone.co.id</h5></a></div>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3" style="box-shadow: 0px 10px 25px rgba(0,0,0,0.1); border-radius: 5px; padding: 20px;">
                     <div class="row">
                         <div class="col-sm-2">
                             <img src="{{asset('images/mobile.png')}}"style="width: 40px;height: 80px; ">
                         </div>
 
                         <div class="col-sm-10">
-                            <a href="" > <h5 style="color: #8b0000"> Dapatkan Aplikasi Mobile BatakZone >></h5></a>
+                            <a href=""> <h5 style="color: #8b0000"> Dapatkan Aplikasi Mobile BatakZone >></h5></a>
 
-                            <h5 style="color: #8b0000"> Ikuti Kami</h5>
                             <div class="footer_social">
+                                <h5 style="color: #8b0000"> Ikuti Kami</h5>
                                 <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f" style="color: #8b0000"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter" style="color: #8b0000"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-youtube" style="color: #8b0000"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-google" style="color: #8b0000"></i></a></li>
-                                    {{--<li><a href="#"><i class="fab fa-vimeo-v" style="color: #8b0000"></i></a></li>--}}
+                                    <li><a href="https://instagram.com/batak.zone?utm_source=ig_profile_share&igshid=1apvr5fnujspe"><i class="fab fa-instagram" style="color: #8b0000"></i></a></li>
                                 </ul>
                             </div>
                         </div>
