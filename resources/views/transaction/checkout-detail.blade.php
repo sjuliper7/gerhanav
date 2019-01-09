@@ -152,7 +152,7 @@
 
         function getCites() {
             var province_id  =   $("#province").val();
-            console.log(province_id)
+            // console.log(province_id)
             $.ajax({
                 type: "POST",
                 url: "get-cities",
@@ -198,8 +198,8 @@
         function estimateCost() {
             // var city_id  =   $("#cities").val();
             var subdistrict_id = $("#sub-district").val();
+            console.log(subdistrict_id);
             var courier = $("#courier").val();
-
             $.ajax({
                 type:   "POST",
                 url:    "estimate-cost",
@@ -210,6 +210,7 @@
                     _token: '{{ csrf_token() }}',
                 }
             }).done(function(result) {
+                // console.log('result = '+result);
                 var total = '{{$total}}';
                 // var total = toNumberWithoutCommna(totals[1]);
 
