@@ -58,7 +58,7 @@
                                                 <div class="product_name"><div><a href="{{ URL::to('buy/' . $product->name ) }}" tabindex="0">{{$product->name}}</a></div></div>
                                             @else
                                                 <div class="product_content">
-                                                    <div class="product_price">{{$product->price}}</div>
+                                                    <div class="product_price">Rp.{{$product->price}}</div>
                                                     <div class="product_name"><div><a href="{{ URL::to('buy/' . $product->name ) }}" tabindex="0">{{$product->name}}</a></div></div>
                                                 </div>
                                                 @endif
