@@ -129,6 +129,6 @@ class TransactionController extends Controller
 
         $transaction->save();
 
-        return redirect(url('transactions-admin/'.$transaction->id));
+        return redirect(url('transactions-admin/'.$id));
     }
 }
