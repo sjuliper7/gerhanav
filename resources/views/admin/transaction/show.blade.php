@@ -47,7 +47,7 @@
                             <img style="max-width: 150px; max-height: 150px;" src="{{url('/images/'.$detailTransactions[0]->transaction->prove_payment)}}">
                         </div>
                         <div class="form-row" style="margin-top: 20px">
-                            <form action="{{url('status-transaction-update/'.$detailTransactions[0]->id)}}" method="POST">
+                            <form action="{{url('status-transaction-update/'.$detailTransactions[0]->transaction->id)}}" method="POST">
                                 {{csrf_field()}}
                                 <select class="form-control" name="status" style="margin-bottom: 20px" onchange="f()" id="status">
                                     @foreach ($status as $st)
