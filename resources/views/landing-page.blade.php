@@ -459,8 +459,8 @@
                             <img src="images/contact_1.png">
                         </div>
                         <div class="char_content">
-                            <div class="char_title">Transaksi</div>
-                            <div class="char_subtitle">Transaksi Aman dan Mudah</div>
+                            <div class="char_title">Terjamin</div>
+                            <div class="char_subtitle">Jaminan Kualitas Produk Lokal</div>
                         </div>
                     </div>
                     {{--</a>--}}
@@ -473,8 +473,8 @@
                             <img src="images/char_4.png">
                         </div>
                         <div class="char_content">
-                            <div class="char_title">Transaksi</div>
-                            <div class="char_subtitle">Transaksi Aman dan Mudah</div>
+                            <div class="char_title">Kerajinan Batak</div>
+                            <div class="char_subtitle">Dukung Produk Kerajinan Batak Toba</div>
                         </div>
                     </div>
                     {{--</a>--}}
